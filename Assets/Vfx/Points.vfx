@@ -880,7 +880,7 @@ VisualEffectResource:
       \       {\n            AttributeFromMap_9AACC55( /*inout */color, particleId,
       GetVFXSampler(attributeMap_d, samplerattributeMap_d), (uint)0, float3(0,0,0),
       float3(1,1,1));\n        }\n        {\n            SetAttribute_3278B22F( /*inout
-      */size, (float)0.005);\n        }\n        \n\n\n#if VFX_USE_ALIVE_CURRENT\n
+      */size, (float)0.0025);\n        }\n        \n\n\n#if VFX_USE_ALIVE_CURRENT\n
       \       if (alive)\n        {\n\t\t\tuint deadIndex = deadListIn.DecrementCounter();\n
       \           uint index = deadListIn[deadIndex];\n            attributeBuffer.Store((index
       * 0x1 + 0x0) << 2,asuint(lifetime));\n            attributeBuffer.Store3((index
@@ -1247,7 +1247,7 @@ VisualEffectResource:
         - m_ExpressionIndex: 8
           m_Value: 1
         - m_ExpressionIndex: 13
-          m_Value: 0.005
+          m_Value: 0.0025
       m_Vector2f:
         m_Array: []
       m_Vector3f:
@@ -2401,7 +2401,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.005
+      m_SerializableObject: 0.0025
     m_Space: 2147483647
   m_Property:
     name: Size
