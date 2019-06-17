@@ -5,6 +5,7 @@
     "com.unity.render-pipelines.high-definition": "5.16.1-preview",
     "com.unity.visualeffectgraph": "5.16.1-preview",
     "jp.keijiro.klak.motion": "https://github.com/keijiro/ProceduralMotion.git#upm",
+    "jp.keijiro.osc-jack": "https://github.com/keijiro/OscJack.git#upm",
     "jp.keijiro.rsvfx": "https://github.com/keijiro/Rsvfx.git#upm",
     "jp.keijiro.vfxextra": "https://github.com/keijiro/VfxExtra.git#upm",
     "com.unity.modules.animation": "1.0.0",
@@ -19,6 +20,10 @@
   "lock": {
     "jp.keijiro.klak.motion": {
       "hash": "194064884606744f65f74750be24d230b7eed284",
+      "revision": "upm"
+    },
+    "jp.keijiro.osc-jack": {
+      "hash": "d6710689e360eca90c63405be93d8e132e7b94ac",
       "revision": "upm"
     },
     "jp.keijiro.rsvfx": {
