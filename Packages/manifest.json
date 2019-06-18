@@ -3,7 +3,7 @@
     "com.unity.mathematics": "1.0.1",
     "com.unity.package-manager-ui": "2.1.2",
     "com.unity.render-pipelines.high-definition": "5.16.1-preview",
-    "com.unity.visualeffectgraph": "5.16.1-preview",
+    "com.unity.visualeffectgraph": "https://github.com/keijiro/com.unity.visualeffectgraph-5.16.1-fix.git",
     "jp.keijiro.klak.motion": "https://github.com/keijiro/ProceduralMotion.git#upm",
     "jp.keijiro.osc-jack": "https://github.com/keijiro/OscJack.git#upm",
     "jp.keijiro.rsvfx": "https://github.com/keijiro/Rsvfx.git#upm",
@@ -18,6 +18,10 @@
     "com.unity.modules.xr": "1.0.0"
   },
   "lock": {
+    "com.unity.visualeffectgraph": {
+      "hash": "26fb4a62ca736aa3317328ee3a2c571ae592d6ee",
+      "revision": "HEAD"
+    },
     "jp.keijiro.klak.motion": {
       "hash": "194064884606744f65f74750be24d230b7eed284",
       "revision": "upm"
