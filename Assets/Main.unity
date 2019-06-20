@@ -130,7 +130,6 @@ GameObject:
   m_Component:
   - component: {fileID: 23419488}
   - component: {fileID: 23419490}
-  - component: {fileID: 23419489}
   m_Layer: 0
   m_Name: Point Size
   m_TagString: Untagged
@@ -152,20 +151,6 @@ Transform:
   m_Father: {fileID: 1220956510}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &23419489
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 23419487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7be053957063d93cc82ff6146cfdcc5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  threshold: 0.0001
-  delay: 0
 --- !u!114 &23419490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -445,6 +430,7 @@ GameObject:
   - component: {fileID: 1220956508}
   - component: {fileID: 1220956512}
   - component: {fileID: 1220956511}
+  - component: {fileID: 1220956513}
   m_Layer: 0
   m_Name: Points
   m_TagString: Untagged
@@ -581,6 +567,20 @@ MonoBehaviour:
   m_Bindings:
   - {fileID: 1220956511}
   m_VisualEffect: {fileID: 1220956509}
+--- !u!114 &1220956513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220956507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7be053957063d93cc82ff6146cfdcc5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  threshold: 0.0001
+  delay: 0
 --- !u!1 &1309828270
 GameObject:
   m_ObjectHideFlags: 0
@@ -1325,6 +1325,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1220956513}
+        m_MethodName: set_parameterValue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: OscJack.OscEventReceiver+FloatEvent, jp.keijiro.osc-jack.Runtime,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   _vector2Event:
@@ -1370,7 +1381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _udpPort: 8000
-  _oscAddress: /point/size
+  _oscAddress: /surface/intensity
   _dataType: 2
   _event:
     m_PersistentCalls:
@@ -1511,7 +1522,7 @@ MonoBehaviour:
   _transform: {fileID: 1969756761}
   _colorMap: {fileID: 8400000, guid: e7f924cd6cc21518992c71a3f594535b, type: 2}
   _positionMap: {fileID: 8400000, guid: 8a6bdfbe09ec949be87629d11885f0f6, type: 2}
-  _intensity: 0
+  _intensity: 1
   _shader: {fileID: 4800000, guid: 2f79047d5541caa8aa4676af86d39329, type: 3}
 --- !u!4 &2057267036
 Transform:
