@@ -1132,7 +1132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _resolution:
-    x: 640
+    x: 848
     y: 480
   _framerate: 60
   _poseTransform: {fileID: 1115322808}
