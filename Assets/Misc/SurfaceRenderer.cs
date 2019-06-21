@@ -33,8 +33,8 @@ namespace Rcam
                 _material.hideFlags = HideFlags.DontSave;
             }
 
-            var xc = _positionMap.width / 4;
-            var yc = _positionMap.height / 4;
+            var xc = _positionMap.width / 2;
+            var yc = _positionMap.height / 2;
 
             _material.SetTexture("_MainTex", _colorMap);
             _material.SetTexture("_PositionMap", _positionMap);
