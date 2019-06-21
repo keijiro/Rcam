@@ -23,35 +23,36 @@ Shader "Hidden/Rcam/Sureface"
 
 #if 0
 
-    float effect(float3 wpos, float time)
+    float2 effect(float3 wpos, float time)
     {
-        return frac(wpos.y * 20 + time) < 0.5;
+        return float2(1, frac(wpos.y * 20 + time) < 0.5);
     }
 
-#elif 0
+#elif 1
 
-    float effect(float3 wpos, float time)
+    float2 effect(float3 wpos, float time)
     {
         float g = wpos.y * 400;
         float fw = fwidth(g);
         g = saturate(1 - abs(0.5 - frac(g) * 0.5 / fw) * 2);
-        return lerp(g, 0.5, smoothstep(0.4, 0.7, fw));
+        g = lerp(g, 0.5, smoothstep(0.4, 0.7, fw));
+        return float2(g, 1);
     }
 
 #elif 0
 
     #include "SimplexNoise2D.hlsl"
 
-    float effect(float3 wpos, float time)
+    float2 effect(float3 wpos, float time)
     {
-        float g = snoise(float2(wpos.y * 29 - time * 1, time));
-        g += snoise(float2(wpos.y * 12 - time * 0.4, time * 0.7));
-        return abs(g) < 0.3;
+        float g = snoise(float2(wpos.y * 39 - time * 1, time));
+        g += snoise(float2(wpos.y * 22 - time * 0.4, time * 0.7));
+        return float2(1, abs(g) < 0.3);
     }
 
-#else
+#elif 0
 
-    float effect(float3 wpos, float time)
+    float2 effect(float3 wpos, float time)
     {
         wpos.z -= 3;
 
@@ -62,7 +63,14 @@ Shader "Hidden/Rcam/Sureface"
         float s = lerp(0.5, 3, Random(seed + 1));
 
         float g = frac(phi * w + time * s);
-        return g < 0.5;
+        return float2(1, g < 0.5);
+    }
+
+#else
+
+    float2 effect(float3 wpos, float time)
+    {
+        return 1;
     }
 
 #endif
@@ -103,7 +111,7 @@ Shader "Hidden/Rcam/Sureface"
     float4 Fragment(
         float4 texCoord : TEXCOORD1,
         float3 worldPos : TEXCOORD2,
-        float4 position : SV_Position
+        float4 clipPos : SV_Position
     ) : SV_Target
     {
         const float alpha_range = 0.00004;
@@ -111,12 +119,16 @@ Shader "Hidden/Rcam/Sureface"
         float3 c = tex2D(_MainTex, texCoord.xy).rgb;
         float a = saturate((texCoord.w - 1 + alpha_range) / alpha_range);
 
-        float g = effect(worldPos, _Time.y);
-        g *= 1 - smoothstep(1, 2, texCoord.z);
+        float2 g = effect(worldPos, _Time.y);
+        a *= 1 - smoothstep(1, 2, texCoord.z);
+        a *= g.y;
 
-        c = lerp(0.3, 1, Luminance(c)) * g;
+        //c = lerp(0.3, 1, Luminance(c)) * g.x;
+        c = floor(c.xyz * 3 + 0.5) / 3 * g.x;
 
-        return float4(c, a * _Intensity);
+        clip(a - 0.99 * Random(_Time.y * 328984 + floor(clipPos.y) * 10000 + floor(clipPos.x)));
+
+        return float4(c * _Intensity, a);
     }
 
     ENDCG
@@ -125,8 +137,7 @@ Shader "Hidden/Rcam/Sureface"
     {
         Pass
         {
-            Blend SrcAlpha One
-            ZWrite Off Cull Off
+            Cull Off
             CGPROGRAM
             #pragma vertex Vertex
             #pragma fragment Fragment
