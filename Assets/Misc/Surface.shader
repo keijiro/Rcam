@@ -7,6 +7,9 @@ Shader "Hidden/Rcam/Sureface"
     sampler2D _MainTex;
     sampler2D _PositionMap;
     uint _XCount, _YCount;
+
+    float _Intensity;
+
     float4x4 _LocalToWorld;
 
     void Vertex(
@@ -52,7 +55,7 @@ Shader "Hidden/Rcam/Sureface"
 
         c = lerp(0.4, 1, Luminance(c)) * g;
 
-        return float4(c, a);
+        return float4(c, a * _Intensity);
     }
 
     ENDCG

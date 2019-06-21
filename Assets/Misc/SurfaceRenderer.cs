@@ -8,6 +8,14 @@ namespace Rcam
         [SerializeField] Transform _transform = null;
         [SerializeField] Texture _colorMap = null;
         [SerializeField] Texture _positionMap = null;
+
+        [SerializeField, Range(0, 1)] float _intensity = 1;
+
+        public float intensity {
+            get { return _intensity; }
+            set { _intensity = value; }
+        }
+
         [SerializeField, HideInInspector] Shader _shader = null;
 
         Material _material;
@@ -27,6 +35,8 @@ namespace Rcam
         {
             if (_colorMap == null || _positionMap == null) return;
 
+            if (_intensity < 0.001f) return;
+
             if (_material == null)
             {
                 _material = new Material(_shader);
@@ -41,6 +51,8 @@ namespace Rcam
 
             _material.SetInt("_XCount", xc);
             _material.SetInt("_YCount", yc);
+
+            _material.SetFloat("_Intensity", _intensity);
 
             var tref = _transform == null ? transform : _transform;
             _material.SetMatrix("_LocalToWorld", tref.localToWorldMatrix);

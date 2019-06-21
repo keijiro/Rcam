@@ -5,6 +5,7 @@
     "com.unity.render-pipelines.high-definition": "5.16.1-preview",
     "com.unity.visualeffectgraph": "https://github.com/keijiro/com.unity.visualeffectgraph-5.16.1-fix.git",
     "jp.keijiro.klak.motion": "https://github.com/keijiro/ProceduralMotion.git#upm",
+    "jp.keijiro.klak.ndi": "https://github.com/keijiro/KlakNDI.git#upm-linux",
     "jp.keijiro.osc-jack": "https://github.com/keijiro/OscJack.git#upm",
     "jp.keijiro.rsvfx": "https://github.com/keijiro/Rsvfx.git#upm",
     "jp.keijiro.vfxextra": "https://github.com/keijiro/VfxExtra.git#upm",
@@ -13,6 +14,7 @@
     "com.unity.modules.imgui": "1.0.0",
     "com.unity.modules.jsonserialize": "1.0.0",
     "com.unity.modules.physics": "1.0.0",
+    "com.unity.modules.ui": "1.0.0",
     "com.unity.modules.unitywebrequest": "1.0.0",
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.xr": "1.0.0"
@@ -25,6 +27,10 @@
     "jp.keijiro.klak.motion": {
       "hash": "194064884606744f65f74750be24d230b7eed284",
       "revision": "upm"
+    },
+    "jp.keijiro.klak.ndi": {
+      "hash": "4f1dd2274c9f5b73fa50b5e31a42eade1b271845",
+      "revision": "upm-linux"
     },
     "jp.keijiro.osc-jack": {
       "hash": "d6710689e360eca90c63405be93d8e132e7b94ac",
