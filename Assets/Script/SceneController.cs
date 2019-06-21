@@ -3,7 +3,7 @@ using UI = UnityEngine.UI;
 
 namespace Rcam
 {
-    sealed class Wrangler : MonoBehaviour
+    sealed class SceneController : MonoBehaviour
     {
         [SerializeField] UI.Text _frameCountLabel = null;
 
