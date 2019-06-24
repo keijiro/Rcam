@@ -1,4 +1,4 @@
-Shader "Hidden/Rcam/Sureface"
+Shader "Rcam/Sureface"
 {
     CGINCLUDE
 

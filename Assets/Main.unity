@@ -1876,7 +1876,7 @@ MonoBehaviour:
   _colorMap: {fileID: 8400000, guid: e7f924cd6cc21518992c71a3f594535b, type: 2}
   _positionMap: {fileID: 8400000, guid: 8a6bdfbe09ec949be87629d11885f0f6, type: 2}
   _intensity: 1
-  _shader: {fileID: 4800000, guid: 2f79047d5541caa8aa4676af86d39329, type: 3}
+  _material: {fileID: 2100000, guid: f2dc2a7c8d393d972985c0c715373741, type: 2}
 --- !u!4 &2057267036
 Transform:
   m_ObjectHideFlags: 0

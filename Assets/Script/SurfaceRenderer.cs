@@ -16,52 +16,39 @@ namespace Rcam
             set { _intensity = value; }
         }
 
-        [SerializeField, HideInInspector] Shader _shader = null;
+        [SerializeField] Material _material = null;
 
-        Material _material;
-
-        void OnDestroy()
-        {
-            if (_material != null)
-            {
-                if (Application.isPlaying)
-                    Destroy(_material);
-                else
-                    DestroyImmediate(_material);
-            }
-        }
+        MaterialPropertyBlock _props;
 
         void Update()
         {
             if (_colorMap == null || _positionMap == null) return;
+            if (_material == null) return;
+
+            if (_props == null) _props = new MaterialPropertyBlock();
 
             if (_intensity < 0.001f) return;
-
-            if (_material == null)
-            {
-                _material = new Material(_shader);
-                _material.hideFlags = HideFlags.DontSave;
-            }
 
             var xc = _positionMap.width / 2;
             var yc = _positionMap.height / 2;
 
-            _material.SetTexture("_MainTex", _colorMap);
-            _material.SetTexture("_PositionMap", _positionMap);
+            _props.SetTexture("_MainTex", _colorMap);
+            _props.SetTexture("_PositionMap", _positionMap);
 
-            _material.SetInt("_XCount", xc);
-            _material.SetInt("_YCount", yc);
+            _props.SetInt("_XCount", xc);
+            _props.SetInt("_YCount", yc);
 
-            _material.SetFloat("_Intensity", _intensity);
+            _props.SetFloat("_Intensity", _intensity);
 
             var tref = _transform == null ? transform : _transform;
-            _material.SetMatrix("_LocalToWorld", tref.localToWorldMatrix);
+            _props.SetMatrix("_LocalToWorld", tref.localToWorldMatrix);
 
             Graphics.DrawProcedural(
                 _material,
                 new Bounds(Vector3.zero, Vector3.one * 1000),
                 MeshTopology.Triangles,
-                (xc - 1) * (yc - 1) * 6
+                (xc - 1) * (yc - 1) * 6, 1,
+                null, _props
             );
         }
     }
