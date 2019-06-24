@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace Rcam
 {
@@ -20,7 +21,7 @@ namespace Rcam
 
         MaterialPropertyBlock _props;
 
-        void Update()
+        void LateUpdate()
         {
             if (_colorMap == null || _positionMap == null) return;
             if (_material == null) return;
@@ -29,10 +30,10 @@ namespace Rcam
 
             if (_intensity < 0.001f) return;
 
-            var xc = _positionMap.width / 2;
-            var yc = _positionMap.height / 2;
+            var xc = _positionMap.width / 4;
+            var yc = _positionMap.height / 4;
 
-            _props.SetTexture("_MainTex", _colorMap);
+            _props.SetTexture("_BaseColorMap", _colorMap);
             _props.SetTexture("_PositionMap", _positionMap);
 
             _props.SetInt("_XCount", xc);
@@ -46,9 +47,9 @@ namespace Rcam
             Graphics.DrawProcedural(
                 _material,
                 new Bounds(Vector3.zero, Vector3.one * 1000),
-                MeshTopology.Triangles,
-                (xc - 1) * (yc - 1) * 6, 1,
-                null, _props
+                MeshTopology.Points, xc * yc, 1,
+                null, _props,
+                ShadowCastingMode.On, true, gameObject.layer
             );
         }
     }
