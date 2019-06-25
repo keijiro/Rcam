@@ -8,6 +8,7 @@
     "jp.keijiro.klak.ndi": "https://github.com/keijiro/KlakNDI.git#upm-linux",
     "jp.keijiro.osc-jack": "https://github.com/keijiro/OscJack.git#upm",
     "jp.keijiro.rsvfx": "https://github.com/keijiro/Rsvfx.git#upm",
+    "jp.keijiro.test-assets": "https://github.com/keijiro/jp.keijiro.test-assets.git",
     "jp.keijiro.vfxextra": "https://github.com/keijiro/VfxExtra.git#upm",
     "com.unity.modules.animation": "1.0.0",
     "com.unity.modules.imageconversion": "1.0.0",
@@ -39,6 +40,10 @@
     "jp.keijiro.rsvfx": {
       "hash": "a9bb2ef9a4b856244b9dd277d578c420d01be29e",
       "revision": "upm"
+    },
+    "jp.keijiro.test-assets": {
+      "hash": "01619e6a98ff383b7cb2ea27e6a0d39702c7c8f3",
+      "revision": "HEAD"
     },
     "jp.keijiro.vfxextra": {
       "hash": "56f7f41a2742decd442f50ed7d26c1b59d265274",
