@@ -71,7 +71,7 @@ void Geometry(
     float3 t1 = normalize(cross(n1, float3(0, 0, 1)));
     float3 t2 = normalize(cross(n2, float3(0, 0, 1)));
 
-    if (all(mask.xyz > 0.9))
+    if (dot(mask.xyz, 1) > 2.9)
     {
         outStream.Append(VertexOutput(p0, n1, t1, uv0));
         outStream.Append(VertexOutput(p1, n1, t1, uv1));
@@ -79,7 +79,7 @@ void Geometry(
         outStream.RestartStrip();
     }
 
-    if (all(mask.yzw > 0.9))
+    if (dot(mask.yzw, 1) > 2.9)
     {
         outStream.Append(VertexOutput(p1, n2, t2, uv1));
         outStream.Append(VertexOutput(p3, n2, t2, uv3));
