@@ -1263,7 +1263,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 15.915494
-  m_Range: 10
+  m_Range: 1
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.802082
   m_CookieSize: 10
@@ -2135,11 +2135,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52a6418b4ffe1201aa9b86b42f044c88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transform: {fileID: 1969756761}
+  _sensorOrigin: {fileID: 1969756761}
   _colorMap: {fileID: 8400000, guid: e7f924cd6cc21518992c71a3f594535b, type: 2}
   _positionMap: {fileID: 8400000, guid: 8a6bdfbe09ec949be87629d11885f0f6, type: 2}
-  _intensity: 1
-  _material: {fileID: 2100000, guid: f2dc2a7c8d393d972985c0c715373741, type: 2}
+  _baseMaterial: {fileID: 2100000, guid: f2dc2a7c8d393d972985c0c715373741, type: 2}
+  _baseColor: {r: 1, g: 0, b: 0, a: 1}
+  _metallic: 1
+  _smoothness: 0.75
+  _cutoff: 0.5
+  _effectType: 0
+  _parameter1: 0.45
+  _parameter2: 1
+  _parameter3: 1
+  _parameter4: 1
 --- !u!4 &2057267036
 Transform:
   m_ObjectHideFlags: 0

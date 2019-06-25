@@ -1,3 +1,59 @@
+// Rcam depth surface reconstruction shader (fragment shader)
+
+// Uniforms given from RcamSurface.cs
+float _RcamCutoff;
+float4 _RcamParams;
+
+// Effector functions
+// Return: float2(intensity, alpha)
+
+#if defined(_RCAM_EFFECT0)
+
+float2 Effector(float3 wpos, float time)
+{
+    float g = wpos.y * 300;
+    float fw = fwidth(g);
+    g = saturate(1 - abs(0.5 - frac(g) * 0.5 / fw) * 2);
+    g = lerp(g, 0.1, smoothstep(0.4, 0.7, fw));
+    return float2(g, 1);
+}
+
+#elif defined(_RCAM_EFFECT1)
+
+float2 Effector(float3 wpos, float time)
+{
+    return float2(0, frac(wpos.y * 20 + time));
+}
+
+#elif defined(_RCAM_EFFECT2)
+
+#include "SimplexNoise2D.hlsl"
+
+float2 Effector(float3 wpos, float time)
+{
+    float g = snoise(float2(wpos.y * 39 - time * 1, time));
+    g += snoise(float2(wpos.y * 22 - time * 0.4, time * 0.7));
+    return float2(0, abs(g));
+}
+
+#elif defined(_RCAM_EFFECT3)
+
+float2 Effector(float3 wpos, float time)
+{
+    wpos.z -= 3;
+
+    float phi = atan2(wpos.z, wpos.x);
+    uint seed = (wpos.y * 60 + 1000) * 2;
+
+    float w = lerp(0.02, 2, Hash(seed));
+    float s = lerp(0.5, 3, Hash(seed + 1));
+
+    float g = frac(phi * w + time * s);
+    return float2(0, g);
+}
+
+#endif
+
 // Fragment shader function, copy-pasted from HDRP/ShaderPass/ShaderPassGBuffer.hlsl
 // There are a few modification from the original shader. See "Custom:" for details.
 void Fragment(
@@ -24,17 +80,10 @@ void Fragment(
     BuiltinData builtinData;
     GetSurfaceAndBuiltinData(input, V, posInput, surfaceData, builtinData);
 
-    float3 wpos = GetAbsolutePositionWS(input.positionRWS);
-
-    float g = wpos.y * 400;
-    float fw = fwidth(g);
-    g = saturate(1 - abs(0.5 - frac(g) * 0.5 / fw) * 2);
-    g = lerp(g, 0.1, smoothstep(0.4, 0.7, fw));
-    surfaceData.baseColor = float4(g, g, g, 1);
-    /*
-    surfaceData.baseColor = 1;
-    clip(frac(wpos.y * 20) - 0.5);
-    */
+    // Custom: Call the effector function and apply material changes.
+    float2 eff = Effector(GetAbsolutePositionWS(input.positionRWS), _Time.y);
+    builtinData.emissiveColor = _BaseColor * eff.x;
+    clip(eff.y - _RcamCutoff);
 
 #ifdef DEBUG_DISPLAY
     ApplyDebugToSurfaceData(input.worldToTangent, surfaceData);

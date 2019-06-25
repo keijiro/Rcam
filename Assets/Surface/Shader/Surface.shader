@@ -1,3 +1,5 @@
+// Rcam depth surface reconstruction shader (vertex shader)
+//
 // Most parts of this shader are simply copy-pasted from the HDRP Lit shader.
 // See "Custom:" for modifications from the original shader.
 
@@ -244,6 +246,9 @@ Shader "Rcam/Surface"
 
     // Custom: Requires the geometry shader features.
     #pragma require geometry
+
+    // Custom: Rcam surface effect variations
+    #pragma multi_compile _RCAM_EFFECT0 _RCAM_EFFECT1 _RCAM_EFFECT2 _RCAM_EFFECT3
 
     //-------------------------------------------------------------------------------------
     // Variant
