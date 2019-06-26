@@ -34,13 +34,13 @@ namespace Rcam
         public float cutoff { set { _cutoff = value; } }
 
         [Space]
-        [SerializeField, Range(0, 3)] int _effectType = 0;
+        [SerializeField, ColorUsage(true, true)] Color _effectColor = Color.white;
         [SerializeField, Range(0, 1)] float _parameter1 = 1;
         [SerializeField, Range(0, 1)] float _parameter2 = 1;
         [SerializeField, Range(0, 1)] float _parameter3 = 1;
         [SerializeField, Range(0, 1)] float _parameter4 = 1;
 
-        public int effectType { set { _effectType = value; } }
+        public Color effectColor { set { _effectColor = value; } }
         public float parameter1 { set { _parameter1 = value; } }
         public float parameter2 { set { _parameter2 = value; } }
         public float parameter3 { set { _parameter3 = value; } }
@@ -52,10 +52,6 @@ namespace Rcam
 
         MaterialPropertyBlock _props;
 
-        string[] _keywords = {
-            "_RCAM_EFFECT0", "_RCAM_EFFECT1", "_RCAM_EFFECT2", "_RCAM_EFFECT3"
-        };
-
         #endregion
 
         #region MonoBehaviour implementation
@@ -66,14 +62,6 @@ namespace Rcam
             if (_baseMaterial == null) return;
 
             if (_props == null) _props = new MaterialPropertyBlock();
-
-            for (var i = 0; i < _keywords.Length; i++)
-            {
-                if (i == _effectType)
-                    Shader.EnableKeyword(_keywords[i]);
-                else
-                    Shader.DisableKeyword(_keywords[i]);
-            }
 
             var xc = _positionMap.width / 4;
             var yc = _positionMap.height / 4;
@@ -89,6 +77,7 @@ namespace Rcam
             _props.SetFloat("_Smoothness", _smoothness);
             _props.SetFloat("_RcamCutoff", _cutoff);
 
+            _props.SetColor("_RcamColor", _effectColor);
             _props.SetVector("_RcamParams", new Vector4(
                 _parameter1, _parameter2, _parameter3, _parameter4));
 

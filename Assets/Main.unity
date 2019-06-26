@@ -1089,7 +1089,7 @@ MonoBehaviour:
   useVolumetric: 1
   featuresFoldout: 1
   showAdditionalSettings: 0
-  displayLightIntensity: 600
+  displayLightIntensity: 100
   displayAreaLightEmissiveMesh: 0
   areaLightCookie: {fileID: 0}
   areaLightShadowCone: 120
@@ -1117,7 +1117,7 @@ Light:
   serializedVersion: 9
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 47.746483
+  m_Intensity: 7.957747
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.802082
@@ -1573,7 +1573,7 @@ MonoBehaviour:
     x: 30
     y: 70
     z: 20
-  frequency: 0.025
+  frequency: 0.08
   octaves: 2
 --- !u!1 &1969756760
 GameObject:
@@ -1998,12 +1998,12 @@ MonoBehaviour:
   _positionMap: {fileID: 8400000, guid: 8a6bdfbe09ec949be87629d11885f0f6, type: 2}
   _baseMaterial: {fileID: 2100000, guid: f2dc2a7c8d393d972985c0c715373741, type: 2}
   _baseColor: {r: 1, g: 1, b: 1, a: 1}
-  _metallic: 0.7
+  _metallic: 1
   _smoothness: 0.8
-  _cutoff: 0
-  _effectType: 1
-  _parameter1: 0.45
-  _parameter2: 1
+  _cutoff: 0.33
+  _effectColor: {r: 5.2164755, g: 0, b: 0, a: 1}
+  _parameter1: 0.763
+  _parameter2: 0
   _parameter3: 1
   _parameter4: 1
 --- !u!4 &2057267036
