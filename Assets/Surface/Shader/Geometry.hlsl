@@ -73,17 +73,15 @@ void Geometry(
     float4 s34 = tex2Dlod(_PositionMap, float4(u + du * 1, v + dv * 3, 0, 0));
 
     // Discard invalid outer samples.
-    s21.xyz = lerp(s22.xyz, s21.xyz, s21.w);
-    s31.xyz = lerp(s32.xyz, s31.xyz, s31.w);
+    s21.xyz = lerp(s22.xyz, s21.xyz, s21.w > 0.9);
+    s31.xyz = lerp(s32.xyz, s31.xyz, s31.w > 0.9);
+    s24.xyz = lerp(s23.xyz, s24.xyz, s24.w > 0.9);
+    s34.xyz = lerp(s33.xyz, s34.xyz, s34.w > 0.9);
 
-    s12.xyz = lerp(s22.xyz, s12.xyz, s12.w);
-    s13.xyz = lerp(s23.xyz, s13.xyz, s13.w);
-
-    s42.xyz = lerp(s32.xyz, s42.xyz, s42.w);
-    s43.xyz = lerp(s33.xyz, s43.xyz, s43.w);
-
-    s24.xyz = lerp(s23.xyz, s24.xyz, s24.w);
-    s34.xyz = lerp(s33.xyz, s34.xyz, s34.w);
+    s12.xyz = lerp(s22.xyz, s12.xyz, s12.w > 0.9);
+    s13.xyz = lerp(s23.xyz, s13.xyz, s13.w > 0.9);
+    s42.xyz = lerp(s32.xyz, s42.xyz, s42.w > 0.9);
+    s43.xyz = lerp(s33.xyz, s43.xyz, s43.w > 0.9);
 
     // Normal vector calculation
     float3 n0 = normalize(cross(s32.xyz - s12.xyz, s23.xyz - s21.xyz));

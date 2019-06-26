@@ -14,7 +14,8 @@ namespace Rcam
 
         void Update()
         {
-            _frameCountLabel.text = Time.frameCount.ToString();
+            if (_frameCountLabel != null)
+                _frameCountLabel.text = Time.frameCount.ToString();
         }
     }
 }
