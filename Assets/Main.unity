@@ -1895,6 +1895,9 @@ MonoBehaviour:
     x: 848
     y: 480
   _framerate: 60
+  _depthThreshold: 3
+  _brightness: 0.3
+  _saturation: 0
   _poseTransform: {fileID: 1115322808}
   _colorMap: {fileID: 8400000, guid: e7f924cd6cc21518992c71a3f594535b, type: 2}
   _positionMap: {fileID: 8400000, guid: 8a6bdfbe09ec949be87629d11885f0f6, type: 2}
@@ -1991,13 +1994,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensorOrigin: {fileID: 1969756761}
-  _colorMap: {fileID: 2800000, guid: 029e37fd0dd872420a994b30e051e33b, type: 3}
+  _colorMap: {fileID: 8400000, guid: e7f924cd6cc21518992c71a3f594535b, type: 2}
   _positionMap: {fileID: 8400000, guid: 8a6bdfbe09ec949be87629d11885f0f6, type: 2}
   _baseMaterial: {fileID: 2100000, guid: f2dc2a7c8d393d972985c0c715373741, type: 2}
   _baseColor: {r: 1, g: 1, b: 1, a: 1}
-  _metallic: 0.8
-  _smoothness: 0.7
-  _cutoff: 0.5
+  _metallic: 0.7
+  _smoothness: 0.8
+  _cutoff: 0
   _effectType: 1
   _parameter1: 0.45
   _parameter2: 1

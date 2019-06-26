@@ -83,6 +83,15 @@ void Geometry(
     s42.xyz = lerp(s32.xyz, s42.xyz, s42.w > 0.9);
     s43.xyz = lerp(s33.xyz, s43.xyz, s43.w > 0.9);
 
+    float3 c = s22.xyz * (s22.w > 0.9) + s32.xyz * (s32.w > 0.9) + s23.xyz * (s23.w > 0.9) + s33.xyz * (s33.w > 0.9);
+    c /= 0.000001 + (s22.w > 0.9) + (s32.w > 0.9) + (s23.w > 0.9) + (s33.w > 0.9);
+    c.z += 0.1;
+
+    s22.xyz = lerp(c, s22.xyz, s22.w > 0.9);
+    s32.xyz = lerp(c, s32.xyz, s32.w > 0.9);
+    s23.xyz = lerp(c, s23.xyz, s23.w > 0.9);
+    s33.xyz = lerp(c, s33.xyz, s33.w > 0.9);
+
     // Normal vector calculation
     float3 n0 = normalize(cross(s32.xyz - s12.xyz, s23.xyz - s21.xyz));
     float3 n1 = normalize(cross(s42.xyz - s22.xyz, s33.xyz - s31.xyz));
@@ -121,7 +130,7 @@ void Geometry(
     float4 mask = float4(s22.w, s32.w, s23.w, s33.w);
 
     // First triangle
-    if (dot(mask.xyz, 1) > 2.9)
+    if (dot(mask.xyz, 1) > 1.9)
     {
         outStream.Append(VertexOutput(p0, n0, t0, uv0));
         outStream.Append(VertexOutput(p1, n1, t1, uv1));
@@ -130,7 +139,7 @@ void Geometry(
     }
 
     // Second triangle
-    if (dot(mask.yzw, 1) > 2.9)
+    if (dot(mask.yzw, 1) > 1.9)
     {
         outStream.Append(VertexOutput(p1, n1, t1, uv1));
         outStream.Append(VertexOutput(p3, n3, t3, uv3));
