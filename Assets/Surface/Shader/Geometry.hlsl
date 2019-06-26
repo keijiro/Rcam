@@ -2,17 +2,23 @@
 //
 // This is a geometry shader that accepts a single point and outputs two
 // triangles. It retrieves positions from a given position map and reconstruct
-// normal/tangent vectors. It discards triangles that contains invalid (too
-// far) positions.
+// normal/tangent vectors. It discards triangles that only contains points on
+// the far plane.
 
 // Uniforms given from RcamSurface.cs
 uint _XCount, _YCount;
 sampler2D _PositionMap;
 float4x4 _LocalToWorld;
 
+// Position map sample helper
+float4 SamplePosition(float u, float v)
+{
+    return tex2Dlod(_PositionMap, float4(u, v, 0, 0));
+}
+
 // Vertex data output helper
 PackedVaryingsType VertexOutput
-    (float3 position, float3 normal, float3 tangent, float2 uv)
+    (float3 position, float3 normal, float3 tangent, float2 uv, float alpha)
 {
     AttributesMesh am;
     am.positionOS = position;
@@ -26,7 +32,7 @@ PackedVaryingsType VertexOutput
     am.uv0 = uv;
 #endif
 #ifdef ATTRIBUTES_NEED_TEXCOORD1
-    am.uv1 = 0;
+    am.uv1 = alpha;
 #endif
 #ifdef ATTRIBUTES_NEED_TEXCOORD2
     am.uv2 = 0;
@@ -56,41 +62,21 @@ void Geometry(
     float dv = 0.5 / _YCount;
 
     // Position map samples
-    float4 s21 = tex2Dlod(_PositionMap, float4(u - du * 1, v - dv * 3, 0, 0));
-    float4 s31 = tex2Dlod(_PositionMap, float4(u + du * 1, v - dv * 3, 0, 0));
+    float4 s21 = SamplePosition(u - du * 1, v - dv * 3);
+    float4 s31 = SamplePosition(u + du * 1, v - dv * 3);
 
-    float4 s12 = tex2Dlod(_PositionMap, float4(u - du * 3, v - dv * 1, 0, 0));
-    float4 s22 = tex2Dlod(_PositionMap, float4(u - du * 1, v - dv * 1, 0, 0));
-    float4 s32 = tex2Dlod(_PositionMap, float4(u + du * 1, v - dv * 1, 0, 0));
-    float4 s42 = tex2Dlod(_PositionMap, float4(u + du * 3, v - dv * 1, 0, 0));
+    float4 s12 = SamplePosition(u - du * 3, v - dv * 1);
+    float4 s22 = SamplePosition(u - du * 1, v - dv * 1);
+    float4 s32 = SamplePosition(u + du * 1, v - dv * 1);
+    float4 s42 = SamplePosition(u + du * 3, v - dv * 1);
 
-    float4 s13 = tex2Dlod(_PositionMap, float4(u - du * 3, v + dv * 1, 0, 0));
-    float4 s23 = tex2Dlod(_PositionMap, float4(u - du * 1, v + dv * 1, 0, 0));
-    float4 s33 = tex2Dlod(_PositionMap, float4(u + du * 1, v + dv * 1, 0, 0));
-    float4 s43 = tex2Dlod(_PositionMap, float4(u + du * 3, v + dv * 1, 0, 0));
+    float4 s13 = SamplePosition(u - du * 3, v + dv * 1);
+    float4 s23 = SamplePosition(u - du * 1, v + dv * 1);
+    float4 s33 = SamplePosition(u + du * 1, v + dv * 1);
+    float4 s43 = SamplePosition(u + du * 3, v + dv * 1);
 
-    float4 s24 = tex2Dlod(_PositionMap, float4(u - du * 1, v + dv * 3, 0, 0));
-    float4 s34 = tex2Dlod(_PositionMap, float4(u + du * 1, v + dv * 3, 0, 0));
-
-    // Discard invalid outer samples.
-    s21.xyz = lerp(s22.xyz, s21.xyz, s21.w > 0.9);
-    s31.xyz = lerp(s32.xyz, s31.xyz, s31.w > 0.9);
-    s24.xyz = lerp(s23.xyz, s24.xyz, s24.w > 0.9);
-    s34.xyz = lerp(s33.xyz, s34.xyz, s34.w > 0.9);
-
-    s12.xyz = lerp(s22.xyz, s12.xyz, s12.w > 0.9);
-    s13.xyz = lerp(s23.xyz, s13.xyz, s13.w > 0.9);
-    s42.xyz = lerp(s32.xyz, s42.xyz, s42.w > 0.9);
-    s43.xyz = lerp(s33.xyz, s43.xyz, s43.w > 0.9);
-
-    float3 c = s22.xyz * (s22.w > 0.9) + s32.xyz * (s32.w > 0.9) + s23.xyz * (s23.w > 0.9) + s33.xyz * (s33.w > 0.9);
-    c /= 0.000001 + (s22.w > 0.9) + (s32.w > 0.9) + (s23.w > 0.9) + (s33.w > 0.9);
-    c.z += 0.1;
-
-    s22.xyz = lerp(c, s22.xyz, s22.w > 0.9);
-    s32.xyz = lerp(c, s32.xyz, s32.w > 0.9);
-    s23.xyz = lerp(c, s23.xyz, s23.w > 0.9);
-    s33.xyz = lerp(c, s33.xyz, s33.w > 0.9);
+    float4 s24 = SamplePosition(u - du * 1, v + dv * 3);
+    float4 s34 = SamplePosition(u + du * 1, v + dv * 3);
 
     // Normal vector calculation
     float3 n0 = normalize(cross(s32.xyz - s12.xyz, s23.xyz - s21.xyz));
@@ -127,23 +113,26 @@ void Geometry(
     float2 uv3 = float2(u + du, v + dv);
 
     // Mask values
-    float4 mask = float4(s22.w, s32.w, s23.w, s33.w);
+    float m0 = s22.w;
+    float m1 = s32.w;
+    float m2 = s23.w;
+    float m3 = s33.w;
 
     // First triangle
-    if (dot(mask.xyz, 1) > 1.9)
+    if (m0 + m1 + m2 > 0.1)
     {
-        outStream.Append(VertexOutput(p0, n0, t0, uv0));
-        outStream.Append(VertexOutput(p1, n1, t1, uv1));
-        outStream.Append(VertexOutput(p2, n2, t2, uv2));
+        outStream.Append(VertexOutput(p0, n0, t0, uv0, m0));
+        outStream.Append(VertexOutput(p1, n1, t1, uv1, m1));
+        outStream.Append(VertexOutput(p2, n2, t2, uv2, m2));
         outStream.RestartStrip();
     }
 
     // Second triangle
-    if (dot(mask.yzw, 1) > 1.9)
+    if (m1 + m2 + m3 > 0.1)
     {
-        outStream.Append(VertexOutput(p1, n1, t1, uv1));
-        outStream.Append(VertexOutput(p3, n3, t3, uv3));
-        outStream.Append(VertexOutput(p2, n2, t2, uv2));
+        outStream.Append(VertexOutput(p1, n1, t1, uv1, m1));
+        outStream.Append(VertexOutput(p3, n3, t3, uv3, m3));
+        outStream.Append(VertexOutput(p2, n2, t2, uv2, m2));
         outStream.RestartStrip();
     }
 }

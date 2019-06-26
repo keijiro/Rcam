@@ -83,7 +83,9 @@ void Fragment(
     // Custom: Call the effector function and apply material changes.
     float2 eff = Effector(GetAbsolutePositionWS(input.positionRWS), _Time.y);
     builtinData.emissiveColor = _BaseColor * eff.x;
-    clip(eff.y - _RcamCutoff);
+    uint seed = posInput.positionSS.x + posInput.positionSS.y * 30000;
+    seed += dot(input.texCoord0.xy, float2(324.4432, 6728.1287));
+    clip(min(eff.y - _RcamCutoff, lerp(-5, 1, input.texCoord1.x) - Hash(seed)));
 
 #ifdef DEBUG_DISPLAY
     ApplyDebugToSurfaceData(input.worldToTangent, surfaceData);
