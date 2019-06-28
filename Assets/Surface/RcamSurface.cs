@@ -76,6 +76,8 @@ namespace Rcam
 
             if (_props == null) _props = new MaterialPropertyBlock();
 
+            if (_slitToAlpha >= 0.9999f || _sliderToAlpha > 0.9999f) return;
+
             var xc = _positionMap.width / 4;
             var yc = _positionMap.height / 4;
 
