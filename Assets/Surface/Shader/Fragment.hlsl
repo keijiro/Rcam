@@ -1,37 +1,70 @@
 // Rcam depth surface reconstruction shader (fragment shader)
 
 // Uniforms given from RcamSurface.cs
-float _RcamCutoff;
-float4 _RcamColor;
-float4 _RcamParams;
+float3 _RcamEmission;
+float _RcamHueShift;
+float2 _RcamLine;   // (alpha, emission)
+float2 _RcamSlit;   // (alpha, emission)
+float2 _RcamSlider; // (alpha, emission)
 
-// Effector function
-// Return: float2(intensity, alpha)
+// Surface effector: Returns an RGBA value.
 
 #include "SimplexNoise2D.hlsl"
 
-float2 Effector(float3 wpos, float time)
+float4 Effector(float3 wpos, float2 uv, float time)
 {
-    float g1 = wpos.y * 200;
-    float fw = fwidth(g1);
-    g1 = saturate(1 - abs(0.5 - frac(g1) * 0.5 / fw) * 2);
-    g1 = lerp(g1, 0.1, smoothstep(0.4, 0.7, fw));
+    float hue = 0, val = 0, alpha = 1;
 
-    float g2 = snoise(float2(wpos.y * 39 - time * 1, time));
-    g2 += snoise(float2(wpos.y * 22 - time * 0.4, time * 0.7));
-    g2 = lerp(1, g2, _RcamParams.x);
+    // Contour lines
+    {
+        // Contour using derivatives
+        float y = wpos.y * 200;
+        float fw = fwidth(y);
+        float g = saturate(1 - abs(1 - frac(y) / fw));
 
-    wpos.z -= 3;
+        // High frequency noise
+        g *= 1 + snoise(uv * 200);
 
-    float phi = atan2(wpos.z, wpos.x);
-    uint seed = (wpos.y * 60 + 1000) * 2;
+        // Frequency filter
+        g = lerp(g, 0.1, smoothstep(0.4, 0.7, fw));
 
-    float w = lerp(0.02, 2, Hash(seed));
-    float s = lerp(0.5, 3, Hash(seed + 1));
-    float g3 = frac(phi * w + time * s);
-    g3 = lerp(1, g3, _RcamParams.y);
+        val += lerp(g, 1, _RcamLine.x) * _RcamLine.y;
+        alpha -= (1 - g) * _RcamLine.x;
+    }
 
-    return float2(g1, min(abs(g2), g3));
+    // Moving slits
+    {
+        float g = 0;
+        g += snoise(float2(wpos.y * 39 - time * 1.2, time * 1.1)) * 0.7;
+        g += snoise(float2(wpos.y * 22 - time * 0.4, time * 0.7)) * 0.7;
+        g = saturate(abs(g));
+
+        val += g < (_RcamSlit.x + _RcamSlit.y);
+        alpha -=  g < _RcamSlit.x;
+    }
+
+    // Sliding rects
+    {
+        float phi = atan2(wpos.z - 3, wpos.x);
+        uint seed = (wpos.y + 10) * 100;
+
+        float wid = lerp(0.02, 2, Hash(seed * 2));
+        float spd = lerp(0.50, 3, Hash(seed * 2 + 1));
+
+        float p = phi * wid + spd * time;
+        float g = frac(p);
+
+        hue += Hash(seed * 37 + (uint)p) - 0.5;
+        val += g < _RcamSlider.y;
+        alpha -= (1 - g) < _RcamSlider.x;
+    }
+
+    // Actual RGB value
+    hue = frac(_RcamEmission.x + _RcamHueShift * hue);
+    val *= _RcamEmission.z;
+    float3 rgb = HsvToRgb(float3(hue, _RcamEmission.y, val));
+
+    return float4(rgb, alpha);
 }
 
 // Fragment shader function, copy-pasted from HDRP/ShaderPass/ShaderPassGBuffer.hlsl
@@ -60,15 +93,19 @@ void Fragment(
     BuiltinData builtinData;
     GetSurfaceAndBuiltinData(input, V, posInput, surfaceData, builtinData);
 
-    // Custom: Call the effector function and apply material changes.
-    float2 eff = Effector(GetAbsolutePositionWS(input.positionRWS), _Time.y);
-    builtinData.emissiveColor = _RcamColor.rgb * surfaceData.baseColor * eff.x;
+    // Custom: Color emission from the surface effector
+    float3 wpos = GetAbsolutePositionWS(input.positionRWS);
+    float4 eff = Effector(wpos, input.texCoord0, _Time.y);
+    //builtinData.emissiveColor += surfaceData.baseColor * eff.rgb;
+    builtinData.emissiveColor += eff.rgb;
 
+    // Custom: Alpha cutout with depth fading
+    // Note that alpha for depth fading is given via UV1.
     uint seed = posInput.positionSS.x + posInput.positionSS.y * 30000;
     seed += dot(input.texCoord0.xy, float2(324.4432, 6728.1287));
     float fade = lerp(-5, 1, input.texCoord1.x) - Hash(seed);
-
-    clip(min(eff.y - _RcamCutoff, fade));
+    //clip(min(eff.a - 0.999, fade));
+    clip(min(eff.a - Hash(seed) , fade));
 
 #ifdef DEBUG_DISPLAY
     ApplyDebugToSurfaceData(input.worldToTangent, surfaceData);

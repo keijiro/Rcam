@@ -26,25 +26,38 @@ namespace Rcam
         [SerializeField] Color _baseColor = Color.white;
         [SerializeField, Range(0, 1)] float _metallic = 0.5f;
         [SerializeField, Range(0, 1)] float _smoothness = 0.5f;
-        [SerializeField, Range(0, 1)] float _cutoff = 0.5f;
 
         public Color baseColor { set { _baseColor = value; } }
         public float metallic { set { _metallic = value; } }
         public float smoothness { set { _smoothness = value; } }
-        public float cutoff { set { _cutoff = value; } }
 
         [Space]
         [SerializeField, ColorUsage(true, true)] Color _effectColor = Color.white;
-        [SerializeField, Range(0, 1)] float _parameter1 = 1;
-        [SerializeField, Range(0, 1)] float _parameter2 = 1;
-        [SerializeField, Range(0, 1)] float _parameter3 = 1;
-        [SerializeField, Range(0, 1)] float _parameter4 = 1;
+        [SerializeField, Range(0, 1)] float _hueShift = 0;
 
         public Color effectColor { set { _effectColor = value; } }
-        public float parameter1 { set { _parameter1 = value; } }
-        public float parameter2 { set { _parameter2 = value; } }
-        public float parameter3 { set { _parameter3 = value; } }
-        public float parameter4 { set { _parameter4 = value; } }
+        public float hueShift { set { _hueShift = value; } }
+
+        [Space]
+        [SerializeField, Range(0, 1)] float _lineToAlpha = 1;
+        [SerializeField, Range(0, 1)] float _lineToEmission = 1;
+
+        public float lineToAlpha { set { _lineToAlpha = value; } }
+        public float lineToEmission { set { _lineToEmission = value; } }
+
+        [Space]
+        [SerializeField, Range(0, 1)] float _slitToAlpha = 0;
+        [SerializeField, Range(0, 1)] float _slitToEmission = 0;
+
+        public float slitToAlpha { set { _slitToAlpha = value; } }
+        public float slitToEmission { set { _slitToEmission = value; } }
+
+        [Space]
+        [SerializeField, Range(0, 1)] float _sliderToAlpha = 0;
+        [SerializeField, Range(0, 1)] float _sliderToEmission = 0;
+
+        public float sliderToAlpha { set { _sliderToAlpha = value; } }
+        public float sliderToEmission { set { _sliderToEmission = value; } }
 
         #endregion
 
@@ -75,11 +88,13 @@ namespace Rcam
             _props.SetColor("_BaseColor", _baseColor);
             _props.SetFloat("_Metallic", _metallic);
             _props.SetFloat("_Smoothness", _smoothness);
-            _props.SetFloat("_RcamCutoff", _cutoff);
 
-            _props.SetColor("_RcamColor", _effectColor);
-            _props.SetVector("_RcamParams", new Vector4(
-                _parameter1, _parameter2, _parameter3, _parameter4));
+            _props.SetColorHsv("_RcamEmission", _effectColor);
+            _props.SetFloat("_RcamHueShift", _hueShift);
+
+            _props.SetVector("_RcamLine", _lineToAlpha, _lineToEmission);
+            _props.SetVector("_RcamSlit",_slitToAlpha, _slitToEmission);
+            _props.SetVector("_RcamSlider",_sliderToAlpha, _sliderToEmission);
 
             var tref = _sensorOrigin != null ? _sensorOrigin : transform;
             _props.SetMatrix("_LocalToWorld", tref.localToWorldMatrix);
@@ -94,5 +109,23 @@ namespace Rcam
         }
 
         #endregion
+    }
+
+    static class MaterialPropertyBlockExtensions
+    {
+        public static void SetVector
+            (this MaterialPropertyBlock block, string name,
+             float x, float y = 0, float z = 0, float w = 0)
+        {
+            block.SetVector(name, new Vector4(x, y, z, w));
+        }
+
+        public static void SetColorHsv
+            (this MaterialPropertyBlock block, string name, Color color)
+        {
+            float h, s, v;
+            Color.RGBToHSV(color, out h, out s, out v);
+            block.SetVector(name, new Vector4(h, s, v, color.a));
+        }
     }
 }

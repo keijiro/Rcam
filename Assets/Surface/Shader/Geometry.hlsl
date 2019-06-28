@@ -4,6 +4,8 @@
 // triangles. It retrieves positions from a given position map and reconstruct
 // normal/tangent vectors. It discards triangles that only contains points on
 // the far plane.
+//
+// We use UV1 to deliver alpha values for depth shading to the fragment shader.
 
 // Uniforms given from RcamSurface.cs
 uint _XCount, _YCount;
