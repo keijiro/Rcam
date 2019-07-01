@@ -452,6 +452,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1976175322}
+  - {fileID: 1102834749}
+  - {fileID: 406918436}
   m_Father: {fileID: 1126876450}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -665,6 +667,396 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23c5004b23fa4748e8fcf7b0cbe41050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &406918435
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 406918436}
+  - component: {fileID: 406918437}
+  - component: {fileID: 406918440}
+  - component: {fileID: 406918439}
+  - component: {fileID: 406918438}
+  - component: {fileID: 406918441}
+  m_Layer: 0
+  m_Name: Camera Buttons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &406918436
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406918435}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 322693507}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &406918437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406918435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51f8f979447c54247bcba0d5441e6081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _udpPort: 8000
+  _oscAddress: /camera/freeze
+  _dataType: 2
+  _event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  _intEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+IntEvent, jp.keijiro.osc-jack.Runtime, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  _floatEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1007647312}
+        m_MethodName: set_Freeze
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: OscJack.OscEventReceiver+FloatEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector2Event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector2Event, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector3Event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector3Event, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector4Event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector4Event, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector2IntEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector2IntEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector3IntEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector3IntEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _stringEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+StringEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!114 &406918438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406918435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51f8f979447c54247bcba0d5441e6081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _udpPort: 8000
+  _oscAddress: /camera/shake
+  _dataType: 0
+  _event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1007647312}
+        m_MethodName: Shake
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  _intEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+IntEvent, jp.keijiro.osc-jack.Runtime, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  _floatEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+FloatEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector2Event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector2Event, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector3Event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector3Event, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector4Event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector4Event, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector2IntEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector2IntEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector3IntEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector3IntEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _stringEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+StringEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!114 &406918439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406918435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51f8f979447c54247bcba0d5441e6081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _udpPort: 8000
+  _oscAddress: /camera/rehash
+  _dataType: 0
+  _event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1007647312}
+        m_MethodName: Rehash
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  _intEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+IntEvent, jp.keijiro.osc-jack.Runtime, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  _floatEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+FloatEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector2Event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector2Event, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector3Event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector3Event, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector4Event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector4Event, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector2IntEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector2IntEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector3IntEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector3IntEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _stringEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+StringEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!114 &406918440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406918435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51f8f979447c54247bcba0d5441e6081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _udpPort: 8000
+  _oscAddress: /camera/recenter
+  _dataType: 0
+  _event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1007647312}
+        m_MethodName: Recenter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  _intEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+IntEvent, jp.keijiro.osc-jack.Runtime, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  _floatEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+FloatEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector2Event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector2Event, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector3Event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector3Event, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector4Event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector4Event, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector2IntEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector2IntEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector3IntEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector3IntEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _stringEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+StringEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!114 &406918441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406918435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51f8f979447c54247bcba0d5441e6081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _udpPort: 8000
+  _oscAddress: /camera/jump
+  _dataType: 0
+  _event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1007647312}
+        m_MethodName: Jump
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  _intEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+IntEvent, jp.keijiro.osc-jack.Runtime, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  _floatEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+FloatEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector2Event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector2Event, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector3Event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector3Event, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector4Event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector4Event, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector2IntEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector2IntEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector3IntEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector3IntEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _stringEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+StringEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!1 &433455948
 GameObject:
   m_ObjectHideFlags: 0
@@ -787,7 +1179,7 @@ GameObject:
   m_Component:
   - component: {fileID: 855473398}
   m_Layer: 0
-  m_Name: Distance
+  m_Name: Offset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -804,7 +1196,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -1.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1908329483}
+  m_Father: {fileID: 1946008260}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &962481775
@@ -817,7 +1209,7 @@ GameObject:
   m_Component:
   - component: {fileID: 962481776}
   m_Layer: 0
-  m_Name: Object
+  m_Name: Distance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -835,6 +1227,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1908329483}
+  - {fileID: 1336017823}
   m_Father: {fileID: 1007647310}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -848,8 +1241,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1007647310}
   - component: {fileID: 1007647311}
+  - component: {fileID: 1007647312}
   m_Layer: 0
-  m_Name: Camera Rig
+  m_Name: Camera Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -868,7 +1262,7 @@ Transform:
   m_Children:
   - {fileID: 962481776}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1007647311
 MonoBehaviour:
@@ -886,6 +1280,369 @@ MonoBehaviour:
   interpolator: 0
   positionSpeed: 7
   rotationSpeed: 7
+--- !u!114 &1007647312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1007647309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bd2aa888e33212b38f0dd9ea090b02a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _trackerNode: {fileID: 1007647311}
+  _followerNode: {fileID: 1882825219}
+  _motionNode: {fileID: 1908329484}
+  _shakeNode: {fileID: 1313754700}
+  _panNode: {fileID: 1946008260}
+  _distanceNode: {fileID: 962481776}
+  _offsetNode: {fileID: 855473398}
+  _shakeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -4.6806593
+      outSlope: -4.6806593
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.041322313
+    - serializedVersion: 3
+      time: 0.6
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _jumpDistance: 0.3
+  _jumpAngle: 20
+--- !u!1 &1102834748
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1102834749}
+  - component: {fileID: 1102834750}
+  - component: {fileID: 1102834753}
+  - component: {fileID: 1102834752}
+  - component: {fileID: 1102834751}
+  m_Layer: 0
+  m_Name: Camera Values
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1102834749
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1102834748}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 322693507}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1102834750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1102834748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51f8f979447c54247bcba0d5441e6081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _udpPort: 8000
+  _oscAddress: /camera/pan
+  _dataType: 4
+  _event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  _intEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+IntEvent, jp.keijiro.osc-jack.Runtime, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  _floatEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+FloatEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector2Event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1007647312}
+        m_MethodName: set_Pan
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: OscJack.OscEventReceiver+Vector2Event, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector3Event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector3Event, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector4Event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector4Event, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector2IntEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector2IntEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector3IntEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector3IntEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _stringEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+StringEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!114 &1102834751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1102834748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51f8f979447c54247bcba0d5441e6081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _udpPort: 8000
+  _oscAddress: /camera/motion
+  _dataType: 2
+  _event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  _intEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+IntEvent, jp.keijiro.osc-jack.Runtime, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  _floatEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1007647312}
+        m_MethodName: set_Motion
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: OscJack.OscEventReceiver+FloatEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector2Event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector2Event, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector3Event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector3Event, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector4Event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector4Event, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector2IntEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector2IntEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector3IntEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector3IntEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _stringEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+StringEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!114 &1102834752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1102834748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51f8f979447c54247bcba0d5441e6081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _udpPort: 8000
+  _oscAddress: /camera/offset
+  _dataType: 2
+  _event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  _intEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+IntEvent, jp.keijiro.osc-jack.Runtime, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  _floatEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1007647312}
+        m_MethodName: set_Offset
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: OscJack.OscEventReceiver+FloatEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector2Event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector2Event, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector3Event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector3Event, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector4Event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector4Event, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector2IntEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector2IntEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector3IntEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector3IntEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _stringEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+StringEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!114 &1102834753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1102834748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51f8f979447c54247bcba0d5441e6081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _udpPort: 8000
+  _oscAddress: /camera/distance
+  _dataType: 2
+  _event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  _intEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+IntEvent, jp.keijiro.osc-jack.Runtime, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  _floatEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1007647312}
+        m_MethodName: set_Distance
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: OscJack.OscEventReceiver+FloatEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector2Event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector2Event, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector3Event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector3Event, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector4Event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector4Event, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector2IntEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector2IntEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector3IntEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector3IntEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _stringEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+StringEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!1 &1115322807
 GameObject:
   m_ObjectHideFlags: 0
@@ -915,7 +1672,7 @@ Transform:
   m_Children:
   - {fileID: 1969756761}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1126876449
 GameObject:
@@ -1023,7 +1780,7 @@ VFXRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1220956507}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -1060,7 +1817,7 @@ VisualEffect:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1220956507}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Asset: {fileID: 8926484042661614526, guid: 4ea4482c3691f4cc2ae8b32198f7980a, type: 3}
   m_StartSeed: 0
   m_ResetSeedOnPlay: 1
@@ -1201,7 +1958,6 @@ GameObject:
   - component: {fileID: 1309828273}
   - component: {fileID: 1309828272}
   - component: {fileID: 1309828271}
-  - component: {fileID: 1309828274}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1353,29 +2109,144 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1309828270}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.4}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_Father: {fileID: 1313754699}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1309828274
+--- !u!1 &1313754698
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1313754699}
+  - component: {fileID: 1313754700}
+  m_Layer: 0
+  m_Name: Shake
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1313754699
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313754698}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1309828273}
+  m_Father: {fileID: 1882825220}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1313754700
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1309828270}
+  m_GameObject: {fileID: 1313754698}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da182326928a834829223cac101f282b, type: 3}
+  m_Script: {fileID: 11500000, guid: 543ddbe12367a4899b011d43ef41f357, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 855473398}
-  interpolator: 2
-  positionSpeed: 7
-  rotationSpeed: 7
+  positionAmount:
+    x: 0.1
+    y: 0.1
+    z: 0.1
+  rotationAmount:
+    x: 2
+    y: 2
+    z: 2
+  frequency: 60
+  octaves: 2
+--- !u!1 &1336017822
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1336017823}
+  - component: {fileID: 1336017825}
+  - component: {fileID: 1336017824}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1336017823
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336017822}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
+  m_Children: []
+  m_Father: {fileID: 962481776}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &1336017824
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336017822}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1336017825
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336017822}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1354551228
 GameObject:
   m_ObjectHideFlags: 0
@@ -1594,7 +2465,7 @@ VFXRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1573828969}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -1631,7 +2502,7 @@ VisualEffect:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1573828969}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Asset: {fileID: 8926484042661614526, guid: c6c32a8abcf50fb10bd38237bbf7a13a, type: 3}
   m_StartSeed: 0
   m_ResetSeedOnPlay: 1
@@ -2276,6 +3147,54 @@ VisualEffect:
       m_Array: []
     m_Bool:
       m_Array: []
+--- !u!1 &1882825218
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1882825220}
+  - component: {fileID: 1882825219}
+  m_Layer: 0
+  m_Name: Camera Root
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1882825219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882825218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da182326928a834829223cac101f282b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 855473398}
+  interpolator: 2
+  positionSpeed: 7
+  rotationSpeed: 7
+--- !u!4 &1882825220
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882825218}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1313754699}
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1908329482
 GameObject:
   m_ObjectHideFlags: 0
@@ -2287,7 +3206,7 @@ GameObject:
   - component: {fileID: 1908329483}
   - component: {fileID: 1908329484}
   m_Layer: 0
-  m_Name: Rotation
+  m_Name: Motion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2304,7 +3223,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 855473398}
+  - {fileID: 1946008260}
   m_Father: {fileID: 962481776}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2330,6 +3249,37 @@ MonoBehaviour:
     z: 20
   frequency: 0.08
   octaves: 2
+--- !u!1 &1946008259
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1946008260}
+  m_Layer: 0
+  m_Name: Pan
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1946008260
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1946008259}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 855473398}
+  m_Father: {fileID: 1908329483}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1969756760
 GameObject:
   m_ObjectHideFlags: 0
