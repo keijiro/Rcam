@@ -61,6 +61,12 @@ namespace Rcam
             _shakeTime = 0;
         }
 
+        public void Impact()
+        {
+            Shake();
+            Jump();
+        }
+
         #endregion
 
         #region Editable attributes
