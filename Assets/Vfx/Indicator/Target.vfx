@@ -478,8 +478,8 @@ MonoBehaviour:
     min: 0
     max: 1
     descendantCount: 0
-  - name: Line Color
-    path: Line Color
+  - name: Color
+    path: Color
     tooltip: 
     sheetType: m_Vector4f
     realType: Color
@@ -2311,7 +2311,7 @@ VisualEffectResource:
       m_Bool:
         m_Array: []
     m_ExposedExpressions:
-    - nameId: Line Color
+    - nameId: Color
       index: 31
     - nameId: Opacity
       index: 51
@@ -13511,7 +13511,7 @@ MonoBehaviour:
   m_InputSlots: []
   m_OutputSlots:
   - {fileID: 8926484042661616069}
-  m_exposedName: Line Color
+  m_exposedName: Color
   m_exposed: 1
   m_Order: 3
   m_Category: 
