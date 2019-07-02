@@ -18,25 +18,19 @@ namespace Rcam
         [SerializeField] Texture _positionMap = null;
         [SerializeField, HideInInspector] Material _baseMaterial = null;
 
+        [Space]
+        [SerializeField, ColorUsage(true, true)] Color _effectColor = Color.white;
+
         #endregion
 
         #region Public properties
 
         [Space]
-        [SerializeField] Color _baseColor = Color.white;
         [SerializeField, Range(0, 1)] float _metallic = 0.5f;
-        [SerializeField, Range(0, 1)] float _smoothness = 0.5f;
+        [SerializeField, Range(0, 1)] float _hueRandomness = 0;
 
-        public Color baseColor { set { _baseColor = value; } }
         public float metallic { set { _metallic = value; } }
-        public float smoothness { set { _smoothness = value; } }
-
-        [Space]
-        [SerializeField, ColorUsage(true, true)] Color _effectColor = Color.white;
-        [SerializeField, Range(0, 1)] float _hueShift = 0;
-
-        public Color effectColor { set { _effectColor = value; } }
-        public float hueShift { set { _hueShift = value; } }
+        public float hueRandomness { set { _hueRandomness = value; } }
 
         [Space]
         [SerializeField, Range(0, 1)] float _lineToAlpha = 1;
@@ -61,9 +55,24 @@ namespace Rcam
 
         #endregion
 
+        #region Public methods
+
+        public void RandomHue()
+        {
+            _hueOffset = Random.value;
+        }
+
+        public void ResetHue()
+        {
+            _hueOffset = 0;
+        }
+
+        #endregion
+
         #region Private objects
 
         MaterialPropertyBlock _props;
+        float _hueOffset;
 
         #endregion
 
@@ -87,12 +96,12 @@ namespace Rcam
             _props.SetInt("_XCount", xc);
             _props.SetInt("_YCount", yc);
 
-            _props.SetColor("_BaseColor", _baseColor);
-            _props.SetFloat("_Metallic", _metallic);
-            _props.SetFloat("_Smoothness", _smoothness);
+            _props.SetColor("_BaseColor", Color.white);
+            _props.SetFloat("_Metallic", Mathf.Min(_metallic * 2, 1));
+            _props.SetFloat("_Smoothness", _metallic * 0.9f);
 
             _props.SetColorHsv("_RcamEmission", _effectColor);
-            _props.SetFloat("_RcamHueShift", _hueShift);
+            _props.SetVector("_RcamHue", _hueOffset, _hueRandomness);
 
             _props.SetVector("_RcamLine", _lineToAlpha, _lineToEmission);
             _props.SetVector("_RcamSlit",_slitToAlpha, _slitToEmission);

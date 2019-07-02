@@ -2,7 +2,7 @@
 
 // Uniforms given from RcamSurface.cs
 float3 _RcamEmission;
-float _RcamHueShift;
+float2 _RcamHue;    // (offset, randomness)
 float2 _RcamLine;   // (alpha, emission)
 float2 _RcamSlit;   // (alpha, emission)
 float2 _RcamSlider; // (alpha, emission)
@@ -60,7 +60,7 @@ float4 Effector(float3 wpos, float2 uv, float time)
     }
 
     // Actual RGB value
-    hue = frac(_RcamEmission.x + _RcamHueShift * hue);
+    hue = frac(_RcamEmission.x + _RcamHue.x + _RcamHue.y * hue);
     val *= _RcamEmission.z;
     float3 rgb = HsvToRgb(float3(hue, _RcamEmission.y, val));
 
