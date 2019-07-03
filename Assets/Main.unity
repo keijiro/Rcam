@@ -150,8 +150,8 @@ Transform:
   - {fileID: 2057267036}
   - {fileID: 343341840}
   - {fileID: 1220956510}
-  - {fileID: 207942878}
   - {fileID: 1867369083}
+  - {fileID: 207942878}
   - {fileID: 356836739}
   - {fileID: 1978387453}
   - {fileID: 1573828970}
@@ -280,7 +280,7 @@ Transform:
   m_Children:
   - {fileID: 1685511116}
   m_Father: {fileID: 2012623}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &207942879
 MonoBehaviour:
@@ -3517,7 +3517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   threshold: 0.0001
-  delay: 0
+  delay: 3
 --- !u!1 &1251444966
 GameObject:
   m_ObjectHideFlags: 0
@@ -3592,6 +3592,49 @@ Transform:
   m_Father: {fileID: 1126876450}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1306943700
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1306943701}
+  - component: {fileID: 1306943702}
+  m_Layer: 0
+  m_Name: Color Boost
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1306943701
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1306943700}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1867369083}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1306943702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1306943700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23c5004b23fa4748e8fcf7b0cbe41050, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1309828270
 GameObject:
   m_ObjectHideFlags: 0
@@ -5057,6 +5100,7 @@ Transform:
   m_Children:
   - {fileID: 1745262434}
   - {fileID: 1049086656}
+  - {fileID: 1889697896}
   m_Father: {fileID: 322693507}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5568,8 +5612,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1354551229}
+  - {fileID: 1980067654}
+  - {fileID: 1306943701}
   m_Father: {fileID: 2012623}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1867369084
 MonoBehaviour:
@@ -5584,7 +5630,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   threshold: 0.0001
-  delay: 0
+  delay: 5
 --- !u!114 &1867369085
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -5674,6 +5720,15 @@ VisualEffect:
       - m_Value: 0.03
         m_Name: Base Size
         m_Overridden: 1
+      - m_Value: 1
+        m_Name: Spawn Rate
+        m_Overridden: 1
+      - m_Value: 0
+        m_Name: Hue Modifier
+        m_Overridden: 1
+      - m_Value: 0
+        m_Name: Boost
+        m_Overridden: 1
     m_Vector2f:
       m_Array: []
     m_Vector3f:
@@ -5751,6 +5806,263 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1889697895
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1889697896}
+  - component: {fileID: 1889697899}
+  - component: {fileID: 1889697898}
+  - component: {fileID: 1889697897}
+  m_Layer: 0
+  m_Name: Particles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1889697896
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889697895}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1727118094}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1889697897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889697895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51f8f979447c54247bcba0d5441e6081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _udpPort: 8000
+  _oscAddress: /particles/color_boost
+  _dataType: 2
+  _event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  _intEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+IntEvent, jp.keijiro.osc-jack.Runtime, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  _floatEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1306943702}
+        m_MethodName: set_parameterValue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: OscJack.OscEventReceiver+FloatEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector2Event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector2Event, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector3Event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector3Event, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector4Event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector4Event, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector2IntEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector2IntEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector3IntEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector3IntEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _stringEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+StringEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!114 &1889697898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889697895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51f8f979447c54247bcba0d5441e6081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _udpPort: 8000
+  _oscAddress: /particles/hue_modifier
+  _dataType: 2
+  _event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  _intEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+IntEvent, jp.keijiro.osc-jack.Runtime, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  _floatEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1980067655}
+        m_MethodName: set_parameterValue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: OscJack.OscEventReceiver+FloatEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector2Event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector2Event, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector3Event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector3Event, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector4Event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector4Event, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector2IntEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector2IntEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector3IntEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector3IntEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _stringEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+StringEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!114 &1889697899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889697895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51f8f979447c54247bcba0d5441e6081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _udpPort: 8000
+  _oscAddress: /particles/spawn_rate
+  _dataType: 2
+  _event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  _intEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+IntEvent, jp.keijiro.osc-jack.Runtime, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  _floatEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1354551230}
+        m_MethodName: set_parameterValue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1867369084}
+        m_MethodName: set_parameterValue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: OscJack.OscEventReceiver+FloatEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector2Event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector2Event, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector3Event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector3Event, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector4Event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector4Event, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector2IntEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector2IntEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _vector3IntEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+Vector3IntEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _stringEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OscJack.OscEventReceiver+StringEvent, jp.keijiro.osc-jack.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!1 &1908329482
 GameObject:
   m_ObjectHideFlags: 0
@@ -6356,6 +6668,49 @@ VisualEffect:
       m_Array: []
     m_Bool:
       m_Array: []
+--- !u!1 &1980067653
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1980067654}
+  - component: {fileID: 1980067655}
+  m_Layer: 0
+  m_Name: Hue Modifier
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1980067654
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980067653}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1867369083}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1980067655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980067653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23c5004b23fa4748e8fcf7b0cbe41050, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1986617067
 GameObject:
   m_ObjectHideFlags: 0
@@ -6390,8 +6745,8 @@ MonoBehaviour:
     y: 480
   _framerate: 60
   _depthThreshold: 1.6
-  _brightness: 0.3
-  _saturation: 0
+  _brightness: 0
+  _saturation: 1
   _poseTransform: {fileID: 1115322808}
   _colorMap: {fileID: 8400000, guid: e7f924cd6cc21518992c71a3f594535b, type: 2}
   _positionMap: {fileID: 8400000, guid: 8a6bdfbe09ec949be87629d11885f0f6, type: 2}

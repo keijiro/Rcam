@@ -98,7 +98,7 @@ namespace Rcam
 
             _props.SetColor("_BaseColor", Color.white);
             _props.SetFloat("_Metallic", Mathf.Min(_metallic * 2, 1));
-            _props.SetFloat("_Smoothness", _metallic * 0.9f);
+            _props.SetFloat("_Smoothness", _metallic * 0.8f);
 
             _props.SetColorHsv("_RcamEmission", _effectColor);
             _props.SetVector("_RcamHue", _hueOffset, _hueRandomness);
