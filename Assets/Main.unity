@@ -148,13 +148,13 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2057267036}
+  - {fileID: 343341840}
   - {fileID: 1220956510}
   - {fileID: 207942878}
   - {fileID: 1867369083}
   - {fileID: 356836739}
   - {fileID: 1978387453}
   - {fileID: 1573828970}
-  - {fileID: 343341840}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -280,7 +280,7 @@ Transform:
   m_Children:
   - {fileID: 1685511116}
   m_Father: {fileID: 2012623}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &207942879
 MonoBehaviour:
@@ -857,7 +857,7 @@ Transform:
   - {fileID: 235774673}
   - {fileID: 1062815083}
   m_Father: {fileID: 2012623}
-  m_RootOrder: 7
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!73398921 &343341841
 VFXRenderer:
@@ -1024,7 +1024,7 @@ Transform:
   m_Children:
   - {fileID: 392357271}
   m_Father: {fileID: 2012623}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &356836740
 MonoBehaviour:
@@ -2167,7 +2167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _defaultColor: {r: 1, g: 1, b: 1, a: 1}
-  _baseColor: {r: 1, g: 0, b: 0, a: 1}
+  _baseColor: {r: 0.5716126, g: 1.2188797, b: 1.6055588, a: 1}
   _hueWidth: 1
 --- !u!1 &1102834748
 GameObject:
@@ -2938,8 +2938,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 1
   m_Bindings:
-  - {fileID: 1209651334}
   - {fileID: 1209651336}
+  - {fileID: 1209651334}
   m_VisualEffect: {fileID: 1209651332}
 --- !u!114 &1209651336
 MonoBehaviour:
@@ -3087,7 +3087,7 @@ Transform:
   m_Children:
   - {fileID: 23419488}
   m_Father: {fileID: 2012623}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1220956511
 MonoBehaviour:
@@ -4186,7 +4186,7 @@ Transform:
   m_Children:
   - {fileID: 1170749969}
   m_Father: {fileID: 2012623}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1573828971
 MonoBehaviour:
@@ -4664,7 +4664,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1007647312}
-        m_MethodName: Impact
+        m_MethodName: Shake
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4746,7 +4746,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1007647312}
-        m_MethodName: Impact
+        m_MethodName: Shake
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5110,7 +5110,7 @@ Transform:
   m_Children:
   - {fileID: 1354551229}
   m_Father: {fileID: 2012623}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1867369084
 MonoBehaviour:
@@ -5543,7 +5543,7 @@ Transform:
   m_Children:
   - {fileID: 1399130691}
   m_Father: {fileID: 2012623}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1978387454
 MonoBehaviour:

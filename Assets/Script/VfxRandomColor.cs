@@ -5,8 +5,8 @@ namespace Rcam
 {
     sealed class VfxRandomColor : MonoBehaviour
     {
-        [SerializeField] Color _defaultColor = Color.white;
-        [SerializeField] Color _baseColor = Color.red;
+        [SerializeField, ColorUsage(true, true)] Color _defaultColor = Color.white;
+        [SerializeField, ColorUsage(true, true)] Color _baseColor = Color.red;
         [SerializeField] float _hueWidth = 1;
 
         public void ResetToDefault()
