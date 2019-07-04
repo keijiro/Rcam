@@ -19,7 +19,6 @@ namespace Rcam
             float h, s, v;
             Color.RGBToHSV(_baseColor, out h, out s, out v);
             h = (h + (Random.value - 0.5f) * _hueWidth + 1) % 1.0f;
-            Debug.Log(h + "/" + s + "/" + v);
             _target.SetVector4(_id, Color.HSVToRGB(h, s, v, true));
         }
 
