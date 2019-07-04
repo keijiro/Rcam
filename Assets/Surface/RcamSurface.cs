@@ -18,9 +18,6 @@ namespace Rcam
         [SerializeField] Texture _positionMap = null;
         [SerializeField, HideInInspector] Material _baseMaterial = null;
 
-        [Space]
-        [SerializeField, ColorUsage(true, true)] Color _effectColor = Color.white;
-
         #endregion
 
         #region Public properties
@@ -55,24 +52,9 @@ namespace Rcam
 
         #endregion
 
-        #region Public methods
-
-        public void RandomHue()
-        {
-            _hueOffset = Random.value;
-        }
-
-        public void ResetHue()
-        {
-            _hueOffset = 0;
-        }
-
-        #endregion
-
         #region Private objects
 
         MaterialPropertyBlock _props;
-        float _hueOffset;
 
         #endregion
 
@@ -90,6 +72,11 @@ namespace Rcam
             var xc = _positionMap.width / 4;
             var yc = _positionMap.height / 4;
 
+            var slit2a = _slitToAlpha * _slitToAlpha;
+            var slit2e = _slitToEmission * _slitToEmission;
+            var slider2a = _sliderToAlpha * _sliderToAlpha;
+            var slider2e = _sliderToEmission * _sliderToEmission;
+
             _props.SetTexture("_BaseColorMap", _colorMap);
             _props.SetTexture("_PositionMap", _positionMap);
 
@@ -100,12 +87,10 @@ namespace Rcam
             _props.SetFloat("_Metallic", Mathf.Min(_metallic * 2, 1));
             _props.SetFloat("_Smoothness", _metallic * 0.8f);
 
-            _props.SetColorHsv("_RcamEmission", _effectColor);
-            _props.SetVector("_RcamHue", _hueOffset, _hueRandomness);
-
+            _props.SetFloat("_RcamHue", _hueRandomness);
             _props.SetVector("_RcamLine", _lineToAlpha, _lineToEmission);
-            _props.SetVector("_RcamSlit",_slitToAlpha, _slitToEmission);
-            _props.SetVector("_RcamSlider",_sliderToAlpha, _sliderToEmission);
+            _props.SetVector("_RcamSlit", slit2a, slit2e);
+            _props.SetVector("_RcamSlider", slider2a, slider2e);
 
             var tref = _sensorOrigin != null ? _sensorOrigin : transform;
             _props.SetMatrix("_LocalToWorld", tref.localToWorldMatrix);

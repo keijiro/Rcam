@@ -1,8 +1,7 @@
 // Rcam depth surface reconstruction shader (fragment shader)
 
 // Uniforms given from RcamSurface.cs
-float3 _RcamEmission;
-float2 _RcamHue;    // (offset, randomness)
+float _RcamHue;
 float2 _RcamLine;   // (alpha, emission)
 float2 _RcamSlit;   // (alpha, emission)
 float2 _RcamSlider; // (alpha, emission)
@@ -60,9 +59,8 @@ float4 Effector(float3 wpos, float2 uv, float time)
     }
 
     // Actual RGB value
-    hue = frac(_RcamEmission.x + _RcamHue.x + _RcamHue.y * hue);
-    val *= _RcamEmission.z;
-    float3 rgb = HsvToRgb(float3(hue, _RcamEmission.y, val));
+    hue = frac(_Time.x + _RcamHue * hue);
+    float3 rgb = HsvToRgb(float3(hue, 1, val * 15));
 
     return float4(rgb, alpha);
 }
