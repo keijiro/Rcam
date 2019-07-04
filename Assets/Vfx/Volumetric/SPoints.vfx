@@ -246,9 +246,9 @@ MonoBehaviour:
   categories: []
   uiBounds:
     serializedVersion: 2
-    x: -437
+    x: -462
     y: -694
-    width: 1532
+    width: 1557
     height: 2168
 --- !u!114 &114350483966674976
 MonoBehaviour:
@@ -856,7 +856,7 @@ VisualEffectResource:
       tmp_bi = tmp_bh[0];\n            float tmp_bk = tmp_bi - (float)-1;\n            float
       tmp_bm = tmp_bk / (float)2;\n            float tmp_bn = tmp_bm * (float)2;\n
       \           float tmp_bo = frac(tmp_bn);\n            float3 tmp_bq = float3(tmp_bo,
-      (float)1, (float)1);\n            float3 tmp_br = HSVtoRGB(tmp_bq);\n            float
+      (float)1, (float)2);\n            float3 tmp_br = HSVtoRGB(tmp_bq);\n            float
       tmp_bs = tmp_br[0];\n            float tmp_bt = tmp_br[1];\n            float
       tmp_bu = tmp_br[2];\n            float3 tmp_bv = float3(tmp_bs, tmp_bt, tmp_bu);\n
       \           float3 tmp_bw = tmp_bv - color;\n            float3 tmp_bx = uniform_g
@@ -5845,7 +5845,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"x":1.0,"y":1.0,"z":1.0}'
+      m_SerializableObject: '{"x":1.0,"y":1.0,"z":2.0}'
     m_Space: 2147483647
   m_Property:
     name: hsv
