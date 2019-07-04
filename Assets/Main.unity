@@ -990,7 +990,7 @@ VFXRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 343341839}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -1027,15 +1027,18 @@ VisualEffect:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 343341839}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Asset: {fileID: 8926484042661614526, guid: b08856e10efdfaceda4ad5cecaf0e228, type: 3}
   m_StartSeed: 0
   m_ResetSeedOnPlay: 1
   m_PropertySheet:
     m_Float:
       m_Array:
-      - m_Value: 1
+      - m_Value: 0.5
         m_Name: Intensity
+        m_Overridden: 1
+      - m_Value: 0
+        m_Name: Hue Modifier
         m_Overridden: 1
     m_Vector2f:
       m_Array: []
@@ -3347,7 +3350,7 @@ GameObject:
   - component: {fileID: 1062815083}
   - component: {fileID: 1062815084}
   m_Layer: 0
-  m_Name: Color
+  m_Name: Hue Modifier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3376,12 +3379,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1062815082}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3e8cefa57d4414ddb1baf7b544a5f99, type: 3}
+  m_Script: {fileID: 11500000, guid: 23c5004b23fa4748e8fcf7b0cbe41050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _defaultColor: {r: 1, g: 1, b: 1, a: 1}
-  _baseColor: {r: 0.5716126, g: 1.2188797, b: 1.6055588, a: 1}
-  _hueWidth: 1
+  _smoothness: 0
 --- !u!1 &1099883260
 GameObject:
   m_ObjectHideFlags: 0
@@ -6306,7 +6307,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1745262434}
   - component: {fileID: 1745262437}
-  - component: {fileID: 1745262436}
   - component: {fileID: 1745262435}
   m_Layer: 0
   m_Name: ZPoints
@@ -6342,33 +6342,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _udpPort: 8000
-  _oscAddress: /zpoints/hue/reset
-  _dataType: 0
+  _oscAddress: /zpoints/hue_modifier
+  _dataType: 2
   _event:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1062815084}
-        m_MethodName: ResetToDefault
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1007647312}
-        m_MethodName: Shake
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   _intEvent:
@@ -6378,60 +6356,10 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   _floatEvent:
     m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: OscJack.OscEventReceiver+FloatEvent, jp.keijiro.osc-jack.Runtime,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  _vector2Event:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: OscJack.OscEventReceiver+Vector2Event, jp.keijiro.osc-jack.Runtime,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  _vector3Event:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: OscJack.OscEventReceiver+Vector3Event, jp.keijiro.osc-jack.Runtime,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  _vector4Event:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: OscJack.OscEventReceiver+Vector4Event, jp.keijiro.osc-jack.Runtime,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  _vector2IntEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: OscJack.OscEventReceiver+Vector2IntEvent, jp.keijiro.osc-jack.Runtime,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  _vector3IntEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: OscJack.OscEventReceiver+Vector3IntEvent, jp.keijiro.osc-jack.Runtime,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  _stringEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: OscJack.OscEventReceiver+StringEvent, jp.keijiro.osc-jack.Runtime,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
---- !u!114 &1745262436
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1745262433}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51f8f979447c54247bcba0d5441e6081, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _udpPort: 8000
-  _oscAddress: /zpoints/hue/randomize
-  _dataType: 0
-  _event:
-    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1062815084}
-        m_MethodName: Randomize
-        m_Mode: 1
+        m_MethodName: set_parameterValue
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6440,27 +6368,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1007647312}
-        m_MethodName: Shake
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  _intEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: OscJack.OscEventReceiver+IntEvent, jp.keijiro.osc-jack.Runtime, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  _floatEvent:
-    m_PersistentCalls:
-      m_Calls: []
     m_TypeName: OscJack.OscEventReceiver+FloatEvent, jp.keijiro.osc-jack.Runtime,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   _vector2Event:
