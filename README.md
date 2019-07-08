@@ -32,8 +32,8 @@ Rcam consists of the following technologies:
 [NewTek NDI]: https://www.newtek.com/ndi/
 
 Volumetric data is captured in real time and visualized on the backpack PC
-carried by the operator. Rendered frames are send to a projector via ethernet
-using NDI video transfer protocol.
+carried by the camera operator. Rendered frames are send to a projector via
+ethernet link using NDI video transfer protocol.
 
 This system was used in a live performance with [umio] at [Channel 20]. Here is
 a [video compilation] of social media posts.
@@ -46,9 +46,18 @@ System requirements
 -------------------
 
 - Unity 2019.1
-- Desktop system (Windows/Mac/Linux)
+- Desktop system with HDRP support
 - RealSense D415 and T265
 - TouchOSC
+
+<!--4567890123456789012345678901234567890123456789012345678901234567890123456-->
+
+To control visuals, upload `Rcam.touchosc` to TouchOSC app using TouchOSC
+Editor. Please note that Windows Defender Firewall has to be turned off to
+receive OSC signals on a Windows system.
+
+Also you can try the effects in the Editor by manually enabling visual effects
+from the Inspector.
 
 Special thanks
 --------------
