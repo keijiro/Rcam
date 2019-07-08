@@ -50,14 +50,29 @@ System requirements
 - RealSense D415 and T265
 - TouchOSC
 
-<!--4567890123456789012345678901234567890123456789012345678901234567890123456-->
-
 To control visuals, upload `Rcam.touchosc` to TouchOSC app using TouchOSC
 Editor. Please note that Windows Defender Firewall has to be turned off to
 receive OSC signals on a Windows system.
 
 Also you can try the effects in the Editor by manually enabling visual effects
 from the Inspector.
+
+Frequently asked questions
+--------------------------
+
+#### How do I mount T265 on D415? It doesn't have a camera screw thread.
+
+I designed a custom bracket for this purpose, which is available on [Tinkercad].
+
+[Tinkercad]:
+  https://www.tinkercad.com/things/0FBAyD8ACOJ-realsense-t265d4xx-bracket
+
+#### Why T265 is required? Isn't D415 enough to capture depth?
+
+If the camera is fixed at a single point, T265 tracker isn't needed. It's used
+to capture the movement of the camera into the 3D scene. It also used to
+compensate jitter caused by hand. In other words, it implements a software
+motion stabilizer.
 
 Special thanks
 --------------
