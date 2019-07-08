@@ -38,9 +38,10 @@ using NDI video transfer protocol.
 This system was used in a live performance with [umio] at [Channel 20]. Here is
 a [video compilation] of social media posts.
 
-
 [Channel 20]: https://channel20.peatix.com/
 [umio]: https://soundcloud.com/umi-o
 [video compilation]: https://vimeo.com/346711967
 
-<!--4567890123456789012345678901234567890123456789012345678901234567890123456-->
+Special thanks to [@z_zabaglione] for lending me the backpack PC.
+
+[@z_zabaglione]: https://twitter.com/z_zabaglione
