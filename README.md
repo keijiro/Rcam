@@ -1,12 +1,12 @@
 Rcam
-----
+====
 
 ![gif](https://i.imgur.com/ihhQwGw.gif)
 ![gif](https://i.imgur.com/IsKzGCQ.gif)
 ![gif](https://i.imgur.com/cXx6JJH.gif)
 ![gif](https://i.imgur.com/tGuupN4.gif)
 
-[Video](https://vimeo.com/346711967)
+[Vimeo - Compilation of social media video posts](https://vimeo.com/346711967)
 
 Rcam is an experimental project that uses a real time volumetric video capture
 system for live performance visuals.
@@ -41,6 +41,17 @@ a [video compilation] of social media posts.
 [Channel 20]: https://channel20.peatix.com/
 [umio]: https://soundcloud.com/umi-o
 [video compilation]: https://vimeo.com/346711967
+
+System requirements
+-------------------
+
+- Unity 2019.1
+- Desktop system (Windows/Mac/Linux)
+- RealSense D415 and T265
+- TouchOSC
+
+Special thanks
+--------------
 
 Special thanks to [@z_zabaglione] for lending me the backpack PC.
 
