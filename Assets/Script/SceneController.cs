@@ -1,11 +1,14 @@
 using UnityEngine;
-using UI = UnityEngine.UI;
+using UnityEngine.Events;
 
 namespace Rcam
 {
     sealed class SceneController : MonoBehaviour
     {
-        [SerializeField] UI.Text _frameCountLabel = null;
+        [System.Serializable]
+        sealed class BatteryLevelEvent : UnityEvent<float> {}
+
+        [SerializeField] BatteryLevelEvent _batteryLevelEvent = null;
 
         public void Reboot()
         {
@@ -14,8 +17,7 @@ namespace Rcam
 
         void Update()
         {
-            if (_frameCountLabel != null)
-                _frameCountLabel.text = Time.frameCount.ToString();
+            _batteryLevelEvent.Invoke(Mathf.Clamp01(SystemInfo.batteryLevel));
         }
     }
 }

@@ -280,10 +280,10 @@ MonoBehaviour:
   categories: []
   uiBounds:
     serializedVersion: 2
-    x: -1396
-    y: 60
-    width: 7523
-    height: 1870
+    x: -1371
+    y: 0
+    width: 7498
+    height: 1905
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1284,7 +1284,7 @@ VisualEffectResource:
       \   float tmp_w = position[0];\n\t\t\t\t    float3 tmp_x = float3(tmp_w, uniform_b,
       uniform_c);\n\t\t\t\t    SetAttribute_CAC29747( /*inout */position, tmp_x);\n\t\t\t\t}\n\t\t\t\t{\n\t\t\t\t
       \   float tmp_x = LineLength[0];\n\t\t\t\t    float tmp_z = tmp_x / (float)-2;\n\t\t\t\t
-      \   float3 tmp_ba = float3((float)0, (float)0, tmp_z);\n\t\t\t\t    SetAttribute_C707D62A(
+      \   float3 tmp_ba = float3((float)0, tmp_z, (float)0);\n\t\t\t\t    SetAttribute_C707D62A(
       /*inout */position, tmp_ba);\n\t\t\t\t}\n\t\t\t\t{\n\t\t\t\t    float tmp_w
       = LineLength[0];\n\t\t\t\t    SetAttribute_3278B22F( /*inout */size, tmp_w);\n\t\t\t\t}\n\t\t\t\t\n\n\t\t\t\t\t\t\n\t\t\t\tif
       (!alive)\n\t\t\t\t\treturn o;\n\t\t\t\n\t\t\t\t#if TARGET_FROM_ATTRIBUTES\n\t\t\t\t\n\t\t\t\t\t\tfloat3
@@ -1294,7 +1294,7 @@ VisualEffectResource:
       *= scaleZ;\n\t\t\t\t\t\t#endif\n\t\t\t\t\t\t\n\t\t\t\tfloat4x4 elementToVFX
       = GetElementToVFXMatrix(axisX,axisY,axisZ,float3(angleX,angleY,angleZ),float3(pivotX,pivotY,pivotZ),size3,position);\n\t\t\t\n\t\t\t\tposition
       = mul(elementToVFX,float4(0,0,0,1)).xyz;\n\t\t\t\t\n\t\t\t\tfloat3 targetOffset
-      = (float3)0;\n\t\t\t\t{\n\t\t\t\t    \n\t\t\t\t    targetOffset = float3(0,0,1);\n\t\t\t\t}\n\t\t\t\t\n\n\t\t\t\ttargetPosition
+      = (float3)0;\n\t\t\t\t{\n\t\t\t\t    \n\t\t\t\t    targetOffset = float3(0,1,0);\n\t\t\t\t}\n\t\t\t\t\n\n\t\t\t\ttargetPosition
       = mul(elementToVFX,float4(targetOffset,1)).xyz;\n\t\t\t\t#endif\n\t\t\t\t\t\n\t\t\t\tfloat4
       pos0 = TransformPositionVFXToClip(position);\n\t\t\t\tfloat4 pos1 = TransformPositionVFXToClip(targetPosition);\n\t\t\t\t\n\t\t\t\tpos0
       = ClipOnNearPlane(pos0, pos1);\n\t\t\t\tpos1 = ClipOnNearPlane(pos1, pos0);\n\t\t\t\t\n\t\t\t\tfloat2
@@ -1543,8 +1543,8 @@ VisualEffectResource:
       targetPosition = float3(0,0,0);\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t#endif\n\t\t\t\t\t\t\n\t\t\t\t{\n\t\t\t\t
       \   float tmp_w = position[2];\n\t\t\t\t    float3 tmp_x = float3(uniform_b,
       uniform_c, tmp_w);\n\t\t\t\t    SetAttribute_CAC29747( /*inout */position, tmp_x);\n\t\t\t\t}\n\t\t\t\t{\n\t\t\t\t
-      \   float tmp_w = LineLength[2];\n\t\t\t\t    float tmp_y = tmp_w / (float)-2;\n\t\t\t\t
-      \   float3 tmp_ba = float3(tmp_y, (float)0, (float)0);\n\t\t\t\t    SetAttribute_C707D62A(
+      \   float tmp_x = LineLength[2];\n\t\t\t\t    float tmp_z = tmp_x / (float)-2;\n\t\t\t\t
+      \   float3 tmp_ba = float3((float)0, tmp_z, (float)0);\n\t\t\t\t    SetAttribute_C707D62A(
       /*inout */position, tmp_ba);\n\t\t\t\t}\n\t\t\t\t{\n\t\t\t\t    float tmp_w
       = LineLength[2];\n\t\t\t\t    SetAttribute_3278B22F( /*inout */size, tmp_w);\n\t\t\t\t}\n\t\t\t\t\n\n\t\t\t\t\t\t\n\t\t\t\tif
       (!alive)\n\t\t\t\t\treturn o;\n\t\t\t\n\t\t\t\t#if TARGET_FROM_ATTRIBUTES\n\t\t\t\t\n\t\t\t\t\t\tfloat3
@@ -1554,7 +1554,7 @@ VisualEffectResource:
       *= scaleZ;\n\t\t\t\t\t\t#endif\n\t\t\t\t\t\t\n\t\t\t\tfloat4x4 elementToVFX
       = GetElementToVFXMatrix(axisX,axisY,axisZ,float3(angleX,angleY,angleZ),float3(pivotX,pivotY,pivotZ),size3,position);\n\t\t\t\n\t\t\t\tposition
       = mul(elementToVFX,float4(0,0,0,1)).xyz;\n\t\t\t\t\n\t\t\t\tfloat3 targetOffset
-      = (float3)0;\n\t\t\t\t{\n\t\t\t\t    \n\t\t\t\t    targetOffset = float3(1,0,0);\n\t\t\t\t}\n\t\t\t\t\n\n\t\t\t\ttargetPosition
+      = (float3)0;\n\t\t\t\t{\n\t\t\t\t    \n\t\t\t\t    targetOffset = float3(0,1,0);\n\t\t\t\t}\n\t\t\t\t\n\n\t\t\t\ttargetPosition
       = mul(elementToVFX,float4(targetOffset,1)).xyz;\n\t\t\t\t#endif\n\t\t\t\t\t\n\t\t\t\tfloat4
       pos0 = TransformPositionVFXToClip(position);\n\t\t\t\tfloat4 pos1 = TransformPositionVFXToClip(targetPosition);\n\t\t\t\t\n\t\t\t\tpos0
       = ClipOnNearPlane(pos0, pos1);\n\t\t\t\tpos1 = ClipOnNearPlane(pos1, pos0);\n\t\t\t\t\n\t\t\t\tfloat2
@@ -1989,31 +1989,31 @@ VisualEffectResource:
         data[0]: -1
         data[1]: -1
         data[2]: -1
+        data[3]: 3
+      - op: 1
+        valueIndex: 35
+        data[0]: -1
+        data[1]: -1
+        data[2]: -1
+        data[3]: 3
+      - op: 1
+        valueIndex: 38
+        data[0]: -1
+        data[1]: -1
+        data[2]: -1
+        data[3]: 3
+      - op: 1
+        valueIndex: 41
+        data[0]: -1
+        data[1]: -1
+        data[2]: -1
         data[3]: 1
       - op: 1
-        valueIndex: 33
-        data[0]: -1
-        data[1]: -1
-        data[2]: -1
-        data[3]: 3
-      - op: 1
-        valueIndex: 36
-        data[0]: -1
-        data[1]: -1
-        data[2]: -1
-        data[3]: 3
-      - op: 1
-        valueIndex: 39
+        valueIndex: 42
         data[0]: -1
         data[1]: -1
         data[2]: -1
         data[3]: 1
-      - op: 1
-        valueIndex: 40
-        data[0]: -1
-        data[1]: -1
-        data[2]: -1
-        data[3]: 3
       - op: 31
         valueIndex: 43
         data[0]: 15
@@ -2230,10 +2230,10 @@ VisualEffectResource:
           m_Value: 1
         - m_ExpressionIndex: 13
           m_Value: 0
-        - m_ExpressionIndex: 16
-          m_Value: 2
         - m_ExpressionIndex: 19
           m_Value: 0.5
+        - m_ExpressionIndex: 20
+          m_Value: 2
         - m_ExpressionIndex: 30
           m_Value: -2
         - m_ExpressionIndex: 44
@@ -2260,12 +2260,12 @@ VisualEffectResource:
           m_Value: {x: 0, y: 0, z: 0}
         - m_ExpressionIndex: 8
           m_Value: {x: 5, y: 5, z: 5}
+        - m_ExpressionIndex: 16
+          m_Value: {x: 0, y: 1, z: 0}
         - m_ExpressionIndex: 17
           m_Value: {x: 0, y: 0, z: 0}
         - m_ExpressionIndex: 18
           m_Value: {x: 1, y: 0, z: 0}
-        - m_ExpressionIndex: 20
-          m_Value: {x: 0, y: 1, z: 0}
         - m_ExpressionIndex: 22
           m_Value: {x: 0, y: 0, z: 1}
         - m_ExpressionIndex: 23
@@ -7519,7 +7519,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"x":0.0,"y":0.0,"z":1.0}'
+      m_SerializableObject: '{"x":0.0,"y":1.0,"z":0.0}'
     m_Space: 2147483647
   m_Property:
     name: targetOffset
@@ -7963,7 +7963,7 @@ MonoBehaviour:
     attributes: []
   m_Direction: 1
   m_LinkedSlots:
-  - {fileID: 8926484042661615818}
+  - {fileID: 8926484042661615817}
 --- !u!114 &8926484042661615691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10184,7 +10184,8 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
     attributes: []
   m_Direction: 0
-  m_LinkedSlots: []
+  m_LinkedSlots:
+  - {fileID: 8926484042661615690}
 --- !u!114 &8926484042661615818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10217,8 +10218,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
     attributes: []
   m_Direction: 0
-  m_LinkedSlots:
-  - {fileID: 8926484042661615690}
+  m_LinkedSlots: []
 --- !u!114 &8926484042661615819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11790,7 +11790,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"x":1.0,"y":0.0,"z":0.0}'
+      m_SerializableObject: '{"x":0.0,"y":1.0,"z":0.0}'
     m_Space: 2147483647
   m_Property:
     name: targetOffset
@@ -12159,8 +12159,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
     attributes: []
   m_Direction: 0
-  m_LinkedSlots:
-  - {fileID: 8926484042661615995}
+  m_LinkedSlots: []
 --- !u!114 &8926484042661615988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12193,7 +12192,8 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
     attributes: []
   m_Direction: 0
-  m_LinkedSlots: []
+  m_LinkedSlots:
+  - {fileID: 8926484042661615995}
 --- !u!114 &8926484042661615989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12422,7 +12422,7 @@ MonoBehaviour:
     attributes: []
   m_Direction: 1
   m_LinkedSlots:
-  - {fileID: 8926484042661615987}
+  - {fileID: 8926484042661615988}
 --- !u!114 &8926484042661615996
 MonoBehaviour:
   m_ObjectHideFlags: 0
