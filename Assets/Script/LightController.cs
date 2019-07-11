@@ -42,8 +42,12 @@ namespace Rcam
         {
             _baseIntensity1 = _light1.intensity;
             _baseIntensity2 = _light2.intensity;
+
             _baseScale1 = _renderer1.transform.localScale.x;
             _baseScale2 = _renderer2.transform.localScale.x;
+
+            intensity1 = 0;
+            intensity2 = 0;
         }
 
         void Update()
