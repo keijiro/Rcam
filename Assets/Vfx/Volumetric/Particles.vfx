@@ -15,7 +15,7 @@ MonoBehaviour:
   m_Parent: {fileID: 114350483966674976}
   m_Children:
   - {fileID: 8926484042661614640}
-  m_UIPosition: {x: 713, y: -774}
+  m_UIPosition: {x: 713, y: -797}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots: []
@@ -2129,8 +2129,8 @@ VisualEffectResource:
         - m_ExpressionIndex: 37
           m_Value:
             serializedVersion: 2
-            key0: {r: 3.7255654, g: 3.3871975, b: 4.0037794, a: 0.99588317}
-            key1: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 0.99588317}
+            key0: {r: 5.584314, g: 5.082353, b: 5.992157, a: 0.99588317}
+            key1: {r: 1, g: 1, b: 1, a: 0.99588317}
             key2: {r: 0.754717, g: 0.754717, b: 0.754717, a: 0}
             key3: {r: 0, g: 0, b: 0, a: 0}
             key4: {r: 0, g: 0, b: 0, a: 0}
@@ -14408,7 +14408,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Gradient, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"colorKeys":[{"color":{"r":3.7255654335021974,"g":3.387197494506836,"b":4.003779411315918,"a":1.0},"time":0.0},{"color":{"r":0.7924528121948242,"g":0.7924528121948242,"b":0.7924528121948242,"a":1.0},"time":0.13043412566184998},{"color":{"r":0.7547169923782349,"g":0.7547169923782349,"b":0.7547169923782349,"a":1.0},"time":0.8604104518890381},{"color":{"r":0.0,"g":0.0,"b":0.0,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":0.9958831667900086,"time":0.0},{"alpha":0.9958831667900086,"time":1.0}],"gradientMode":0}'
+      m_SerializableObject: '{"colorKeys":[{"color":{"r":5.584313869476318,"g":5.082353115081787,"b":5.992156982421875,"a":1.0},"time":0.0},{"color":{"r":1.0,"g":1.0,"b":1.0,"a":1.0},"time":0.13043412566184998},{"color":{"r":0.7547169923782349,"g":0.7547169923782349,"b":0.7547169923782349,"a":1.0},"time":0.8604104518890381},{"color":{"r":0.0,"g":0.0,"b":0.0,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":0.9958831667900086,"time":0.0},{"alpha":0.9958831667900086,"time":1.0}],"gradientMode":0}'
     m_Space: 2147483647
   m_Property:
     name: gradient
