@@ -1,6 +1,7 @@
 using UnityEngine;
 using Unity.Mathematics;
 using Random = Unity.Mathematics.Random;
+using Klak.Math;
 
 namespace Rcam
 {
@@ -13,10 +14,7 @@ namespace Rcam
                 new Vector3(value.x, -value.y, 0) * 120;
         } }
 
-        public float Distance { set {
-            var z = _baseDistance * (1 + value);
-            _distanceNode.localPosition = new Vector3(0, 0, z);
-        } }
+        public float Distance { get; set; }
 
         public float Offset { set {
             var z = _baseOffset * math.exp(value);
@@ -92,6 +90,8 @@ namespace Rcam
         float _baseOffset;
         float3 _baseMotion;
 
+        CdsTween _distance;
+
         float3 _shakePosition;
         float3 _shakeRotation;
         float _shakeTime = 1e+3f;
@@ -104,6 +104,8 @@ namespace Rcam
             _baseOffset = _offsetNode.localPosition.z;
             _baseMotion = _motionNode.rotationAmount;
 
+            _distance = new CdsTween(0, 4);
+
             _shakePosition = _shakeNode.positionAmount;
             _shakeRotation = _shakeNode.rotationAmount;
             _shakeNode.positionAmount = 0;
@@ -112,6 +114,9 @@ namespace Rcam
 
         void Update()
         {
+            _distance.Step(_baseDistance * (1 + Distance));
+            _distanceNode.localPosition = new Vector3(0, 0, _distance.Current);
+
             var shake = _shakeCurve.Evaluate(_shakeTime);
             _shakeNode.positionAmount = _shakePosition * shake;
             _shakeNode.rotationAmount = _shakeRotation * shake;
